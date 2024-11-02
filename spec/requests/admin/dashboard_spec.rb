@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Admin::Dashboards", type: :request do
-  let(:user) { User.create(email: "test@test.com", password: "password" ) }
+  let(:user) { User.create(email: "test@test.com", password: "password") }
 
   before do
     sign_in user
@@ -12,5 +12,4 @@ RSpec.describe "Admin::Dashboards", type: :request do
       expect(response).to have_http_status(:success)
     end
   end
-
 end
