@@ -69,7 +69,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   # Add Devise test identifiers sign_in & sign_out
-  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::IntegrationHelpers
 end
 
 Shoulda::Matchers.configure do |config|
