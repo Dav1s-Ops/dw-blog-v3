@@ -16,7 +16,7 @@ RSpec.feature "User Authentication", type: :feature do
   scenario "User logs out successfully" do
     sign_in user
     visit admin_dashboard_path
-    click_link 'Logout'
+    click_button 'Logout'
 
     expect(current_path).to eq("/")
   end
