@@ -57,5 +57,5 @@ group :development do
   gem "web-console"
 end
 
-
 gem "devise", "~> 4.9"
+gem "friendly_id", "~> 5.5"
