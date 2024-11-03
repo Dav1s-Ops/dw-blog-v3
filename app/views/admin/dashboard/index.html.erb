@@ -1,2 +1,29 @@
-<h1>Admin::Dashboard#index</h1>
-<p>Find me in app/views/admin/dashboard/index.html.erb</p>
+<h1>Admin Dashboard</h1>
+
+<div class="stats">
+  <div class="stat-card">
+    <h2>Total Posts</h2>
+    <p><%= @total_posts %></p>
+  </div>
+  <div class="stat-card">
+    <h2>Total Categories</h2>
+    <p><%= @total_categories %></p>
+  </div>
+  <div class="stat-card">
+    <h2>Total Tags</h2>
+    <p><%= @total_tags %></p>
+  </div>
+  <div class="stat-card">
+    <h2>Draft Posts</h2>
+    <p><%= @draft_posts %></p>
+  </div>
+</div>
+
+<div>
+  <h2>Posts by Category</h2>
+  <%= pie_chart @posts_by_category, donut: true, id: "chart-posts-by-category" %>
+
+  <h2>Top 5 Tags by Number of Posts</h2>
+  <%= bar_chart @top_tags, id: "chart-top-5-tags" %>
+</div>
+
