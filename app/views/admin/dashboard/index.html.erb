@@ -18,3 +18,12 @@
     <p><%= @draft_posts %></p>
   </div>
 </div>
+
+<div>
+  <h2>Posts by Category</h2>
+  <%= pie_chart @posts_by_category, donut: true, id: "chart-posts-by-category" %>
+
+  <h2>Top 5 Tags by Number of Posts</h2>
+  <%= bar_chart @top_tags, id: "chart-top-5-tags" %>
+</div>
+
