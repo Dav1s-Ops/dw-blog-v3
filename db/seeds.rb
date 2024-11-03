@@ -17,14 +17,14 @@ admin = User.create!(
 puts "—————— User created: #{admin.email}"
 puts "Creating categories..."
 
-categories = ['Ruby on Rails', 'JavaScript', 'DevOps', 'Tutorials', 'News'].map do |category_name|
+categories = [ 'Ruby on Rails', 'JavaScript', 'DevOps', 'Tutorials', 'News' ].map do |category_name|
   Category.create!(name: category_name)
 end
 
 puts "—————— Categories created: #{categories.map(&:name).join(', ')}"
 puts "Creating tags..."
 
-tags = ['Beginner', 'Advanced', 'Tips', 'Best Practices', 'Performance'].map do |tag_name|
+tags = [ 'Beginner', 'Advanced', 'Tips', 'Best Practices', 'Performance' ].map do |tag_name|
   Tag.create!(name: tag_name)
 end
 
@@ -49,7 +49,7 @@ Alt-H1
 
 Alt-H2
 ------
-```	
+```#{'	'}
 
 # h1 Heading 8-)
 ## h2 Heading
@@ -429,7 +429,7 @@ line description';
         }
 
         $this->var = 0 - self::$st;
-        $this->list = list(Array("1"=> 2, 2=>self::ME, 3 => \Location\Web\URI::class));
+        $this->list = list(Array("1"=> 2, 2=>self::ME, 3 => URI::class));
 
         return [
             'uri'   => $uri,
@@ -644,8 +644,8 @@ MD
 50.times do |i|
   post = Post.create!(
     title: "Sample Post #{i + 1}",
-    content: "# Here we are at #{i + 1} " + post_content,
-    status: [:draft, :published].sample,
+    content: "# Here we are at #{i + 1}\n" + post_content,
+    status: Post.statuses.keys.sample,
     user: admin
   )
 
