@@ -12,4 +12,28 @@
  *
  *= require_tree .
  *= require_self
+ *= require posts
  */
+:root {
+  --Gray: #363636;
+  --White: #FFFFFF;
+  --Electro-Red: #F42053;
+  --Electro-Blue: #30C2F6;
+  --Electro-Forest-Green: #0DAE5E;
+  --Electro-Pink: #C225E0;
+  --Electro-Yellow: #F0AA05;
+  --Electro-Purple: #6027FF;
+  --Login-Gradient: radial-gradient(50% 50% at 50% 50%, #000 0%, #121212 100%);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+}
