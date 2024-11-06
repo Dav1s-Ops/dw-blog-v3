@@ -6,8 +6,11 @@
     </div>
     <div class="category-selectors">
       <% Category.all.each do |category| %>
+        <% is_active = @category && @category.id == category.id %>
         <% category_class = "category #{category.name.downcase}" %>
-        <%= link_to category_posts_path(category_id: category.id), class: category_class do %>
+        <% category_class += ' active' if is_active %>
+        <% link_path = is_active ? posts_path : category_posts_path(category_id: category.id) %>
+        <%= link_to link_path, class: category_class do %>
           <div class="category-text"><%= category.name %></div>
         <% end %>
       <% end %>
