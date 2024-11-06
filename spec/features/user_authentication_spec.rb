@@ -18,6 +18,6 @@ RSpec.feature "User Authentication", type: :feature do
     visit admin_dashboard_path
     click_button 'Logout'
 
-    expect(current_path).to eq("/")
+    expect(current_path).to eq("/posts")
   end
 end
