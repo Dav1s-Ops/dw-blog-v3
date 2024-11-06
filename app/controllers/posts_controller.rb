@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
-    if params[:category_id]
-      @category = Category.find(params[:category_id])
+    if params[:category]
+      @category = Category.friendly.find(params[:category])
       @posts = @category.posts.published
     else
       @posts = Post.published

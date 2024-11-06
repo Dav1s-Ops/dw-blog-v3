@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show]
 
   # Posts by category sort
-  get 'posts/category/:category_id', to: 'posts#index', as: 'category_posts'
+  get 'posts/category/:category', to: 'posts#index', as: 'category_posts'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
