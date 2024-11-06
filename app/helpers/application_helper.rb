@@ -1,8 +1,8 @@
 module ApplicationHelper
   class HTMLWithRouge < Redcarpet::Render::HTML
     def block_code(code, language)
-      lexer = Rouge::Lexer.find_fancy(language || 'text', code)
-      formatter = Rouge::Formatters::HTMLLegacy.new(css_class: 'highlight')
+      lexer = Rouge::Lexer.find_fancy(language || "text", code)
+      formatter = Rouge::Formatters::HTMLLegacy.new(css_class: "highlight")
       formatter.format(lexer.lex(code))
     end
   end
@@ -18,7 +18,7 @@ module ApplicationHelper
       superscript: true,
       underline: true,
       highlight: true,
-      quote: true,
+      quote: true
     }
     Redcarpet::Markdown.new(renderer, options).render(content).html_safe
   end
