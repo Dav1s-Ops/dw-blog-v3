@@ -45,7 +45,7 @@ html, body {
 
 body {
   display: flex;
-  padding: 32px 32px 10px 32px;
+  padding: 12px;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -65,9 +65,17 @@ body::before {
   z-index: -1;
 }
 
+.highlight {
+  border-radius: 6px;
+  width: 100%;
+}
+
 .highlight pre {
-  white-space: pre-wrap; /* This allows text to wrap */
-  word-break: break-word; /* Ensures long words also wrap */
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
   padding: 20px;
-  min-width: 825px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
