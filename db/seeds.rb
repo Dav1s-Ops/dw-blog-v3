@@ -650,8 +650,8 @@ MD
   )
 
   # Associate random categories and tags
-  post.categories << categories.sample(rand(1..3))
-  post.tags << tags.sample(rand(1..3))
+  post.categories << categories[0...-1].sample(rand(0..4))
+  post.tags << tags.sample(rand(0..5))
 
   # Generate slug using FriendlyId
   post.save!
