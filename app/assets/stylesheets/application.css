@@ -60,7 +60,14 @@ body::before {
   top: 0;
   left: 0;
   width: 100%;
-  height: 120vh;
+  height: 100vh;
   background: var(--Black-Gradient, linear-gradient(180deg, #000 0%, #121212 100%));
   z-index: -1;
+}
+
+.highlight pre {
+  white-space: pre-wrap; /* This allows text to wrap */
+  word-break: break-word; /* Ensures long words also wrap */
+  padding: 20px;
+  min-width: 825px;
 }
