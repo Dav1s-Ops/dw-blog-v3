@@ -10,4 +10,9 @@ module PostsHelper
       end
     end.join.html_safe
   end
+
+  def posts_header(current_category)
+    title = current_category ? "Posts in #{current_category.name} Category" : "All Posts"
+    content_tag(:h2, title, class: "post-by-cat")
+  end
 end

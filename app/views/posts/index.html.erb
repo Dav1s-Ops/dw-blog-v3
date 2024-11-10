@@ -8,16 +8,17 @@
       <%= render_category_links(@category) %>
     </div>
   </figure>
-  <% if @category %>
-    <h2 class="post-by-cat">Posts in <%= @category.name %> Category</h2>
+  <%= posts_header(@category) %>
+  <% if @posts.present? %>
+    <% @posts.each do |post| %>
+      <div class="post">
+        <h2><%= link_to post.title, post_path(post) %></h2>
+        <p><%= truncate(post.content, length: 100) %></p>
+        <%= link_to 'Read More', post_path(post) %>
+      </div>
+    <% end %>
   <% else %>
-    <h2 class="post-by-cat">All Posts</h2>
-  <% end %>
-  <% @posts.each do |post| %>
-    <div class="post">
-      <h2><%= link_to post.title, post_path(post) %></h2>
-      <p><%= truncate(post.content, length: 100) %></p>
-      <%= link_to 'Read More', post_path(post) %>
-    </div>
+    <h2>Nothing here yet...</h2>
+    <p>I guess I better get to work. Try another category or check back soon!</p>
   <% end %>
 </section>
