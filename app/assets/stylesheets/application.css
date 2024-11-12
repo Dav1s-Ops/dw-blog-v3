@@ -12,4 +12,70 @@
  *
  *= require_tree .
  *= require_self
+ *= require posts
  */
+:root {
+  --Gray: #363636;
+  --White: #FFFFFF;
+  --Electro-Red: #F42053;
+  --Electro-Blue: #30C2F6;
+  --Electro-Forest-Green: #0DAE5E;
+  --Electro-Pink: #C225E0;
+  --Electro-Yellow: #F0AA05;
+  --Electro-Purple: #6027FF;
+  --Login-Gradient: radial-gradient(50% 50% at 50% 50%, #000 0%, #121212 100%);
+
+  --Electro-Red-RGB: 244, 32, 83;      /* #F42053 */
+  --Electro-Blue-RGB: 48, 194, 246;    /* #30C2F6 */
+  --Electro-Forest-Green-RGB: 13, 174, 94; /* #0DAE5E */
+  --Electro-Pink-RGB: 194, 37, 224;    /* #C225E0 */
+  --Electro-Yellow-RGB: 240, 170, 5;   /* #F0AA05 */
+  --Electro-Purple-RGB: 96, 39, 255;   /* #6027FF */
+  --Electro-Orange-RGB: 246, 140, 48;  /* #F68C30 */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  color: var(--White, #FFF);
+}
+
+body {
+  display: flex;
+  padding: 12px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: auto;
+  background: none;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--Black-Gradient, linear-gradient(180deg, #000 0%, #121212 100%));
+  z-index: -1;
+}
+
+.highlight {
+  border-radius: 6px;
+  width: 100%;
+}
+
+.highlight pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  padding: 20px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
