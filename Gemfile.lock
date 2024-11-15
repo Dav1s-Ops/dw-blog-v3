@@ -113,6 +113,8 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.5.1)
     docile (1.4.1)
+    dockerfile-rails (1.6.24)
+      rails (>= 3.0.0)
     drb (2.2.1)
     erubi (1.13.0)
     friendly_id (5.5.1)
@@ -337,7 +339,7 @@ GEM
 PLATFORMS
   aarch64-linux
   arm-linux
-  arm64-darwin
+  arm64-darwin-21
   x86-linux
   x86_64-darwin
   x86_64-linux
@@ -349,6 +351,7 @@ DEPENDENCIES
   chartkick (~> 5.1)
   debug
   devise (~> 4.9)
+  dockerfile-rails (>= 1.6)
   friendly_id (~> 5.5)
   importmap-rails
   jbuilder
