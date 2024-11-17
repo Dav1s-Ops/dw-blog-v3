@@ -1,2 +1,14 @@
-<h1>Admin::Posts#edit</h1>
-<p>Find me in app/views/admin/posts/edit.html.erb</p>
+<% if @post.errors.any? %>
+  <div id="error_explanation" class="error-messages">
+    <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% content_for :form_title, "Edit Post" %>
+
+<%= render 'form' %>
