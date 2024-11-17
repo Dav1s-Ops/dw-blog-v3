@@ -1,13 +1,12 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_categories, only: [:new, :create, :edit, :update]
-  before_action :set_post, only: [:edit, :update]
+  before_action :set_categories, only: [:new, :create, :edit, :update, :preview]
+  before_action :set_post, only: [:edit, :update, :destroy, :preview]
   def index
   end
 
   def new
     @post = Post.new
-    @categories = Category.all
   end
 
   def create
@@ -22,7 +21,7 @@ class Admin::PostsController < ApplicationController
     end
 
     if @post.save
-      redirect_to admin_posts_path, notice: 'Post created.'
+      redirect_to admin_posts_path, notice: "Post created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,16 +35,31 @@ class Admin::PostsController < ApplicationController
 
     # Process tags
     if @post.tag_list.present?
-      tag_names = @post.tag_list.split(',').map(&:strip).reject(&:blank?)
+      tag_names = @post.tag_list.split(",").map(&:strip).reject(&:blank?)
       tags = tag_names.map { |name| Tag.find_or_create_by(name: name) }
       @post.tags = tags
     end
 
     if @post.save
-      redirect_to admin_posts_path, notice: 'Post updated.'
+      redirect_to admin_posts_path, notice: "Post updated."
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+  end
+
+  def preview
+    if params[:id]
+      @post.assign_attributes(post_params)
+    else
+      @post = Post.new(post_params)
+      @post.user = current_user
+    end
+
+    flash.now[:preview] = true
+    render params[:id] ? :edit : :new
   end
 
   private

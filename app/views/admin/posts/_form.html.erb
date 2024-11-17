@@ -1,4 +1,12 @@
-<%= form_with(model: [:admin, @post], local: true, class: "ANP-container") do |form| %>
+<% if flash.now[:preview] %>
+  <section class="posts-container">
+    <h1><%= @post.title %></h1>
+    <p>Categories: <%= @post.categories.map(&:name).join(', ') %></p>
+    <p>Tags: <%= @post.tag_list %></p>
+    <%= markdown(@post.content) %>
+  </section>
+<% end %>
+<%= form_with(model: [:admin, @post], local: true, data: { turbo: false }, class: "ANP-container") do |form| %>
   <div class="ANP-content">
     <%= form.text_area :content, class: "ANP-content-input" %>
   </div>
@@ -30,12 +38,14 @@
       <%= form.select :status, options_for_select([["Draft", "draft"], ["Published", "published"]], @post.status), {}, class: "ANP-input" %>
     </div>
     <div class="ANP-buttons">
+      <%= form.submit "Preview (Under Construction)",
+        formaction: @post.new_record? ? preview_admin_posts_path : preview_admin_post_path(@post),
+        formmethod: :post,
+        class: "ANP-button ANP-button-preview" %>
       <% if @post.new_record? %>
-        <%= button_tag "Preview", type: "button", class: "ANP-button ANP-button-preview" %>
-        <%= button_tag "Save Post", type: "submit", class: "ANP-button ANP-button-save" %>
+        <%= form.submit "Save Post", class: "ANP-button ANP-button-save" %>
       <% else %>
-        <%= button_tag "Preview", type: "button", class: "ANP-button ANP-button-preview" %>
-        <%= button_tag "Update Post", type: "submit", class: "ANP-button ANP-button-save" %>
+        <%= form.submit "Update Post", class: "ANP-button ANP-button-save" %>
       <% end %>
     </div>
   </div>

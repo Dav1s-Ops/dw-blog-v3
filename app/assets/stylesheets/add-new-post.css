@@ -161,6 +161,12 @@
 }
 
 .ANP-button-preview {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: default;
+}
+
+.ANP-button-preview {
   background: rgba(var(--Electro-Yellow-RGB), 1); /* Full opacity yellow */
   transition: 500ms;
 }
