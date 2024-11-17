@@ -1,0 +1,42 @@
+<%= form_with(model: [:admin, @post], local: true, class: "ANP-container") do |form| %>
+  <div class="ANP-content">
+    <%= form.text_area :content, class: "ANP-content-input" %>
+  </div>
+  <div class="ANP-attributes">
+    <div class="ANP-heading">
+      <h2><%= yield :form_title %></h2>
+    </div>
+    <div class="ANP-field">
+      <%= form.label :title, class: "ANP-label" %>
+      <%= form.text_field :title, class: "ANP-input" %>
+    </div>
+    <div class="ANP-field">
+      <%= form.label :category_ids, "Categories", class: "ANP-label" %>
+      <div class="ANP-checkbox-group">
+        <% @categories.each do |category| %>
+          <div class="ANP-checkbox-item">
+            <%= check_box_tag "post[category_ids][]", category.id, @post.category_ids.include?(category.id), id: "category_#{category.id}", class: "ANP-checkbox" %>
+            <%= label_tag "category_#{category.id}", category.name, class: "ANP-checkbox-label" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="ANP-field">
+      <%= form.label :tag_list, "Tags", class: "ANP-label" %>
+      <%= form.text_area :tag_list, class: "ANP-input ANP-textarea", placeholder: "Enter tags separated by commas" %>
+    </div>
+    <div class="ANP-field">
+      <%= form.label :status, class: "ANP-label" %>
+      <%= form.select :status, options_for_select([["Draft", "draft"], ["Published", "published"]], @post.status), {}, class: "ANP-input" %>
+    </div>
+    <div class="ANP-buttons">
+      <% if @post.new_record? %>
+        <%= button_tag "Preview", type: "button", class: "ANP-button ANP-button-preview" %>
+        <%= button_tag "Save Post", type: "submit", class: "ANP-button ANP-button-save" %>
+      <% else %>
+        <%= button_tag "Preview", type: "button", class: "ANP-button ANP-button-preview" %>
+        <%= button_tag "Update Post", type: "submit", class: "ANP-button ANP-button-save" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
