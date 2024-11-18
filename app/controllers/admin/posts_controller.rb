@@ -13,13 +13,6 @@ class Admin::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
 
-    # Process tags
-    if @post.tag_list.present?
-      tag_names = @post.tag_list.split(",").map(&:strip).reject(&:blank?)
-      tags = tag_names.map { |name| Tag.find_or_create_by(name: name) }
-      @post.tags = tags
-    end
-
     if @post.save
       redirect_to admin_posts_path, notice: "Post created."
     else
@@ -32,13 +25,6 @@ class Admin::PostsController < ApplicationController
 
   def update
     @post.assign_attributes(post_params)
-
-    # Process tags
-    if @post.tag_list.present?
-      tag_names = @post.tag_list.split(",").map(&:strip).reject(&:blank?)
-      tags = tag_names.map { |name| Tag.find_or_create_by(name: name) }
-      @post.tags = tags
-    end
 
     if @post.save
       redirect_to admin_posts_path, notice: "Post updated."
