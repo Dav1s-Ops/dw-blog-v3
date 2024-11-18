@@ -1,0 +1,215 @@
+/* Container */
+.ANP-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 0px 100px var(--Green-Glow);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #363636;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+/* Left Side: Content */
+.ANP-content {
+  width: 720px;
+  padding: 10px;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.ANP-content-input {
+  flex-grow: 1;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  word-wrap: break-word;
+  resize: none;
+}
+
+/* Right Side: Attributes */
+.ANP-attributes {
+  flex: 1 1 0;
+  padding: 10px 20px;
+  background: linear-gradient(360deg, #000000 0%, #121212 100%);
+  outline: 1px solid #363636;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* Heading */
+.ANP-heading {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.ANP-heading h2 {
+  color: #FFFFFF;
+  font-size: 24px;
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Fields */
+.ANP-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ANP-label {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 600;
+}
+
+.ANP-input {
+  width: 100%;
+  height: 42px;
+  box-sizing: border-box;
+  padding: 0 10px;
+  background: #000;
+  border: 1px solid #363636;
+  border-radius: 6px;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-family: 'B612 Mono', monospace;
+  line-height: 16px;
+  outline: none;
+}
+
+.ANP-textarea {
+  height: auto;
+  padding: 10px;
+  min-height: 100px;
+}
+
+/* Checkbox Group */
+.ANP-checkbox-group {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  background: #000;
+  border: 1px solid #363636;
+  border-radius: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ANP-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ANP-checkbox {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #363636;
+  background: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.ANP-checkbox:checked {
+  background-color: #0DAE5E;
+}
+
+.ANP-checkbox-label {
+  color: #FFFFFF;
+  font-size: 10px;
+  font-family: 'B612 Mono', monospace;
+  line-height: 16px;
+}
+
+/* Buttons */
+.ANP-buttons {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ANP-button {
+  flex: 1;
+  height: 42px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-family: 'Lato', sans-serif;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.ANP-button-preview {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: default;
+}
+
+.ANP-button-preview {
+  background: rgba(var(--Electro-Yellow-RGB), 1); /* Full opacity yellow */
+  transition: 500ms;
+}
+
+.ANP-button-preview:hover {
+  background: rgba(var(--Electro-Yellow-RGB), 0.8); /* Reduced opacity yellow */
+}
+
+.ANP-button-save {
+  background: rgba(var(--Electro-Forest-Green-RGB), 1); /* Full opacity green */
+  transition: 500ms;
+}
+
+.ANP-button-save:hover {
+  background: rgba(var(--Electro-Forest-Green-RGB), 0.8); /* Reduced opacity green */
+}
+
+
+.ANP-input:focus, 
+.ANP-textarea:focus {
+  border-color: var(--Electro-Forest-Green);
+  box-shadow: 0px 0px 10px var(--Green-Glow);
+  outline: none;
+}
+
+.ANP-input.ANP-textarea:focus {
+  border-color: var(--Electro-Forest-Green);
+  box-shadow: 0px 0px 10px var(--Green-Glow);
+}
+
+.ANP-checkbox:focus {
+  outline: 2px solid var(--Electro-Forest-Green);
+  outline-style: double;
+}
+
+.ANP-input:-webkit-autofill,
+.ANP-input:-webkit-autofill:hover,
+.ANP-input:-webkit-autofill:focus {
+  background-color: rgba(var(--Electro-Forest-Green-RGB), 0.1) !important; /* Transparent green */
+  box-shadow: 0 0 0px 1000px #000 inset !important; /* Match your form background */
+  border-color: var(--Electro-Forest-Green) !important; /* Consistent border color */
+  color: var(--White) !important; /* Force white font color */
+  -webkit-text-fill-color: var(--White) !important; /* Ensures text color stays white in autofill */
+  transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+}
+

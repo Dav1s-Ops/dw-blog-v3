@@ -2,9 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   let(:user) { User.create(email: 'user@example.com', password: 'password') }
+  let(:category) { Category.create(name: 'Test') }
+  let(:tag) { Tag.create(name: 'Test') }
 
   before do
-    Post.create(title: 'Unique Post Title', content: 'This is a unique post.', user: user)
+    Post.create(title: 'Unique Post Title', content: 'This is a unique post.', categories: [ category ], tags: [ tag ], user: user)
   end
 
   it { should belong_to(:user) }

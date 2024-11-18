@@ -3,6 +3,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "dashboard", to: "dashboard#index", as: "dashboard"
+    resources :posts do
+      member do
+        match :preview, via: [:post, :patch] # Bypass RESTful PATCH 
+      end
+      collection do
+        post :preview # Without :id
+      end
+    end
   end
 
   root to: redirect('/posts')
