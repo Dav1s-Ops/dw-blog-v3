@@ -1,7 +1,7 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_categories, only: [:new, :create, :edit, :update, :preview]
-  before_action :set_post, only: [:edit, :update, :destroy, :preview]
+  before_action :set_categories, only: [ :new, :create, :edit, :update, :preview ]
+  before_action :set_post, only: [ :edit, :update, :destroy, :preview ]
   def index
   end
 
@@ -15,7 +15,7 @@ class Admin::PostsController < ApplicationController
 
     # Process tags
     if @post.tag_list.present?
-      tag_names = @post.tag_list.split(',').map(&:strip).reject(&:blank?)
+      tag_names = @post.tag_list.split(",").map(&:strip).reject(&:blank?)
       tags = tag_names.map { |name| Tag.find_or_create_by(name: name) }
       @post.tags = tags
     end

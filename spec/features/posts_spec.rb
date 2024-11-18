@@ -6,7 +6,7 @@ RSpec.feature "PublishedPosts", type: :feature do
   let(:tag) { Tag.create(name: 'Test') }
 
   before do
-    @post = Post.create(title: 'Public Post', content: 'Content', status: :published, categories: [category], tags: [tag], user: user)
+    @post = Post.create(title: 'Public Post', content: 'Content', status: :published, categories: [ category ], tags: [ tag ], user: user)
   end
 
   scenario "Visit the posts index" do
