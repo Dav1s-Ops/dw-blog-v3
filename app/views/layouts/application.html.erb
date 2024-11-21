@@ -6,9 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= yield :head %>
-
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -17,15 +15,8 @@
     <%= stylesheet_link_tag "rouge", media: "all" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-    <% if user_signed_in? %>
-      <%= link_to 'Dashboard', admin_dashboard_path %> |
-      <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Login', new_user_session_path %>
-    <% end %>
-
+    <%= render "layouts/navbar" %>
     <%= yield %>
   </body>
 </html>
