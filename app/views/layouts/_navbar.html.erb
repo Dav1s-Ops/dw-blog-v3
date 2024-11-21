@@ -1,0 +1,36 @@
+<nav class="navbar">
+  <div class="navbar-logo">
+    <%= link_to root_path do %>
+      <%= image_tag "coding-logo.svg", alt: "Logo", class: "logo-image" %>
+    <% end %>
+  </div>
+  <div data-controller="dropdown" class="dropdown-container relative">
+    <button
+      type="button"
+      id="navbar_menu_button"
+      class="dropdown-button"
+      data-dropdown-target="button"
+      data-action="click->dropdown#toggle click@window->dropdown#hide"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      Menu
+      <%= image_tag "menu-icon", alt: "Menu", class: "menu-icon" %>
+    </button>
+    <div
+      role="menu"
+      class="dropdown-menu hidden absolute right-0 origin-top-right"
+      data-dropdown-target="menu"
+      aria-orientation="vertical"
+      aria-labelledby="navbar_menu_button"
+    >
+      <%= link_to "Home", root_path, class: "dropdown-link" %>
+      <% if user_signed_in? %>
+        <%= link_to "Dashboard", admin_dashboard_path, class: "dropdown-link" %>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-link-button" %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: "dropdown-link" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
