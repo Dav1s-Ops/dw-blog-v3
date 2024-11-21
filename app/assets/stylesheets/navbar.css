@@ -23,16 +23,21 @@
   gap: 10px;
   color: #FFF;
   border-radius: 24px;
-  border: 1px solid var(--Electro-Forest-Green, #0DAE5E);
+  border: 1px solid var(--Gray, #ccc); /* Added fallback */
   background-color: var(--Login-Gradient, radial-gradient(50% 50% at 50% 50%, #000 0%, #121212 100%));
   margin-bottom: 8px;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border 0.3s ease-out;
+  transition: border 0.3s ease, border 0.3s ease-out;
 }
 
-.dropdown-button:hover {
+.dropdown-button:hover,
+.dropdown-button:focus {
+  border: 1px solid var(--Electro-Forest-Green, #0DAE5E); 
   background-color: rgba(13, 174, 94, 0.8);
+  outline: 2px solid rgba(13, 174, 94, 0.5); 
+  outline-offset: 2px;
 }
 
 .dropdown-menu {
