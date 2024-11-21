@@ -1,0 +1,141 @@
+.navbar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: top;
+  padding: 0 16px;
+}
+
+.navbar-logo img {
+  height: 80px;
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-button {
+  display: flex;
+  height: 36px;
+  padding: 6px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #FFF;
+  border-radius: 24px;
+  border: 1px solid var(--Electro-Forest-Green, #0DAE5E);
+  background-color: var(--Login-Gradient, radial-gradient(50% 50% at 50% 50%, #000 0%, #121212 100%));
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-button:hover {
+  background-color: rgba(13, 174, 94, 0.8);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 10;
+  right: 0;
+  min-width: 160px;
+  padding: 8px 0px;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px;
+  border: 1px solid var(--Electro-Forest-Green, #0DAE5E);
+  background: var(--Black-Gradient, linear-gradient(180deg, #000 0%, #121212 100%));
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+  transform-origin: top right;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.dropdown-link,
+.dropdown-link-button {
+  display: block;
+  padding: 8px 16px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  color: #FFF;
+  border: none;
+  background: none;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+
+.dropdown-link:hover,
+.dropdown-link-button:hover {
+  background-color: #0DAE5E;
+}
+
+.dropdown-link-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.menu-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Transition classes */
+.transition {
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+}
+
+.ease-out {
+  transition-timing-function: ease-out;
+}
+
+.ease-in {
+  transition-timing-function: ease-in;
+}
+
+.duration-75 {
+  transition-duration: 75ms;
+}
+
+.duration-100 {
+  transition-duration: 100ms;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.scale-95 {
+  transform: scale(0.95);
+}
+
+.scale-100 {
+  transform: scale(1);
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.pointer-events-auto {
+  pointer-events: auto;
+}
