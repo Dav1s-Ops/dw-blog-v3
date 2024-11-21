@@ -1,5 +1,3 @@
-// app/javascript/controllers/dropdown_controller.js
-
 import { Controller } from "@hotwired/stimulus"
 import { useTransition } from "stimulus-use"
 
