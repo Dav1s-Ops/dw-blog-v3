@@ -27,6 +27,7 @@
       <%= link_to "Home", root_path, class: "dropdown-link" %>
       <% if user_signed_in? %>
         <%= link_to "Dashboard", admin_dashboard_path, class: "dropdown-link" %>
+        <%= link_to "Posts", admin_posts_path, class: "dropdown-link" %>
         <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-link-button" %>
       <% else %>
         <%= link_to "Login", new_user_session_path, class: "dropdown-link" %>
