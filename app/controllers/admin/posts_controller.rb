@@ -3,6 +3,7 @@ class Admin::PostsController < ApplicationController
   before_action :set_categories, only: [ :new, :create, :edit, :update, :preview ]
   before_action :set_post, only: [ :edit, :update, :destroy, :preview ]
   def index
+    @pagy, @posts = pagy(Post.order(created_at: :desc), limit: 10)
   end
 
   def new
