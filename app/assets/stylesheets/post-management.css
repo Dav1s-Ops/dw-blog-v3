@@ -105,12 +105,45 @@
   width: 120px;
 }
 
-.admin-posts__action-button {
-  color: white;
+.admin-posts__table-cell-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-posts__action-link-Edit,
+.admin-posts__action-link-Delete {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
-  margin-right: 10px;
+  color: white;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.admin-posts__action-link-Edit:hover {
+  color: var(--Electro-Forest-Green); 
+  text-decoration: underline;
+}
+
+.admin-posts__action-link-Delete:hover {
+  color: var(--Electro-Red); 
+  text-decoration: underline;
+}
+
+.admin-posts__icon {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+  transition: fill 0.3s ease;
+}
+
+.admin-posts__action-text {
   font-size: 10px;
   font-family: 'B612 Mono', monospace;
+  font-weight: 400;
+  line-height: 16px;
 }
 
 .admin-posts__pagination {

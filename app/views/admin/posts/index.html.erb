@@ -17,10 +17,12 @@
           <td class="admin-posts__table-cell"><%= post.id %></td>
           <td class="admin-posts__table-cell"><%= post.title %></td>
           <td class="admin-posts__table-cell"><%= post.slug %></td>
-          <td class="admin-posts__table-cell"><%= post.status %></td>
+          <td class="admin-posts__table-cell"><%= post.status.capitalize %></td>
           <td class="admin-posts__table-cell">
-            <%= link_to 'Edit', edit_admin_post_path(post), class: 'admin-posts__action-button' %>
-            <%= link_to 'Delete', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'admin-posts__action-button' %>
+            <div class="admin-posts__table-cell-buttons">
+              <%= admin_action_button edit_admin_post_path(post), 'edit-icon.svg', 'Edit', class: 'admin-posts__action-button' %>
+              <%= admin_action_button admin_post_path(post), 'trash-icon.svg', 'Delete', method: :delete, data: { confirm: 'Are you sure?' }, class: 'admin-posts__action-button' %>
+            </div>
           </td>
         </tr>
       <% end %>
