@@ -1,2 +1,32 @@
-<h1>Admin::Posts#index</h1>
-<p>Find me in app/views/admin/posts/index.html.erb</p>
+<section class="admin-posts">
+  <h1 class="admin-posts__title">Post Management</h1>
+  <%= link_to "Add New Post", new_admin_post_path, class: "admin-posts__add-button" %>
+  <table class="admin-posts__table">
+    <thead>
+      <tr>
+        <th class="admin-posts__table-header">ID</th>
+        <th class="admin-posts__table-header">Title</th>
+        <th class="admin-posts__table-header">Slug</th>
+        <th class="admin-posts__table-header">Status</th>
+        <th class="admin-posts__table-header">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td class="admin-posts__table-cell"><%= post.id %></td>
+          <td class="admin-posts__table-cell"><%= post.title %></td>
+          <td class="admin-posts__table-cell"><%= post.slug %></td>
+          <td class="admin-posts__table-cell"><%= post.status %></td>
+          <td class="admin-posts__table-cell">
+            <%= link_to 'Edit', edit_admin_post_path(post), class: 'admin-posts__action-button' %>
+            <%= link_to 'Delete', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'admin-posts__action-button' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="admin-posts__pagination">
+    <%== pagy_nav(@pagy) %>
+  </div>
+</section>
