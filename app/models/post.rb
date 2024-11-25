@@ -1,3 +1,5 @@
+require "csv"
+
 class Post < ApplicationRecord
   belongs_to :user
 
@@ -28,7 +30,7 @@ class Post < ApplicationRecord
   def process_tags
     nil if @tag_list.blank?
 
-    tag_names = @tag_list.split(",").map(&:strip).reject(&:blank?)
+    tag_names = CSV.parse_line(@tag_list, col_sep: ",").map(&:strip).reject(&:blank?)
     self.tags = tag_names.map { |name| Tag.find_or_create_by(name: name) }
   end
 
