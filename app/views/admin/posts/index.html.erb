@@ -15,13 +15,23 @@
       <% @posts.each do |post| %>
         <tr>
           <td class="admin-posts__table-cell"><%= post.id %></td>
-          <td class="admin-posts__table-cell"><%= post.title %></td>
+          <td class="admin-posts__table-cell">
+            <%= link_to admin_post_path(post), class: "admin-posts__title-link" do %>
+              <%= post.title %>
+            <% end %>
+          </td>
           <td class="admin-posts__table-cell"><%= post.slug %></td>
           <td class="admin-posts__table-cell"><%= post.status.capitalize %></td>
           <td class="admin-posts__table-cell">
             <div class="admin-posts__table-cell-buttons">
-              <%= admin_action_button edit_admin_post_path(post), 'edit-icon.svg', 'Edit', class: 'admin-posts__action-button' %>
-              <%= admin_action_button admin_post_path(post), 'trash-icon.svg', 'Delete', method: :delete, data: { confirm: 'Are you sure?' }, class: 'admin-posts__action-button' %>
+              <%= link_to edit_admin_post_path(post), class: "admin-posts__action-link-Edit" do %>
+                <%= inline_svg 'edit-icon.svg', class: 'admin-posts__icon' %>
+                Edit
+              <% end %>
+              <%= button_to admin_post_path(post), method: :delete, class: "admin-posts__action-link-Delete", data: { confirm: "Are you sure you want to delete this post?" } do %>
+                <%= inline_svg 'trash-icon.svg', class: 'admin-posts__icon' %>
+                <span class="admin-posts__action-text">Delete</span>
+              <% end %>
             </div>
           </td>
         </tr>
