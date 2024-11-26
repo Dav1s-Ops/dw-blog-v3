@@ -1,6 +1,9 @@
 <section class="admin-posts">
   <h1 class="admin-posts__title">Post Management</h1>
-  <%= link_to "Add New Post", new_admin_post_path, class: "admin-posts__add-button" %>
+  <%= link_to new_admin_post_path, class: "admin-posts__add-button" do %>
+    <%= inline_svg "add-ellipse.svg", class: "admin-posts__add-button-icon" %>
+    Add New Post
+  <% end %>
   <table class="admin-posts__table">
     <thead>
       <tr>
