@@ -10,6 +10,7 @@
   line-height: 16px;
   overflow: hidden;
   border: 1px solid var(--Gray, #363636);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 0;
   background: var(--Black-Gradient-Reverse, linear-gradient(0deg, #000 0%, #121212 100%));
   transition: background-color 0.3s ease, border 0.3s ease-out;
