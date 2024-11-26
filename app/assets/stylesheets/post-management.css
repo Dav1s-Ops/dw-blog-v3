@@ -32,7 +32,6 @@
   text-align: center;
   cursor: pointer;
   transition: background 0.3s ease, border 0.3s ease-out;
-  transition: border 0.3s ease, border 0.3s ease-out;
 }
 
 .admin-posts__add-button:hover,
@@ -105,6 +104,20 @@
   width: 120px;
 }
 
+.admin-posts__title-link {
+  text-decoration: none;
+  color: white;
+  font-family: 'B612 Mono', monospace;
+  font-weight: 400;
+  line-height: 16px;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.admin-posts__title-link:hover {
+  color: var(--Electro-Forest-Green);
+  text-decoration: underline;
+}
+
 .admin-posts__table-cell-buttons {
   display: flex;
   justify-content: center;
@@ -112,13 +125,26 @@
   gap: 1rem;
 }
 
-.admin-posts__action-link-Edit,
+.admin-posts__action-link-Edit {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
 .admin-posts__action-link-Delete {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
   color: white;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
   transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
