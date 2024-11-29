@@ -28,7 +28,9 @@
   --Electro-Yellow: #F0AA05;
   --Electro-Purple: #6027FF;
   --Login-Gradient: radial-gradient(50% 50% at 50% 50%, #000 0%, #121212 100%);
-  --Green-Glow: rgba(13, 174, 94, 0.25);
+  --Electro-Red-Gradient: linear-gradient(0deg, rgba(244, 32, 83, 0.5) 0%, rgba(244, 32, 83) 100%);
+  --Gray-Gradient: linear-gradient(0deg, rgba(123, 123, 123, 0.5) 0%, rgb(147, 147, 147) 100%);
+  --Green-Glow: rgba(68, 68, 68, 0.25);
 
   --Electro-Red-RGB: 244, 32, 83;      /* #F42053 */
   --Electro-Blue-RGB: 48, 194, 246;    /* #30C2F6 */
