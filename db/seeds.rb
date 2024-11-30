@@ -646,12 +646,14 @@ MD
     title: "Sample Post #{i + 1}",
     content: "# Here we are at #{i + 1}\n" + post_content,
     status: Post.statuses.keys.sample,
-    user: admin
+    user: admin,
+    categories: categories.sample(rand(1..4)),
+    tags: tags.sample(rand(1..5))
   )
 
   # Associate random categories and tags
-  post.categories << categories[0...-1].sample(rand(0..4))
-  post.tags << tags.sample(rand(0..5))
+  # post.categories << categories.sample(rand(0..4))
+  # post.tags << tags.sample(rand(0..5))
 
   # Generate slug using FriendlyId
   post.save!
