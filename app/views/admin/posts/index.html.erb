@@ -44,30 +44,5 @@
   <div class="admin-posts__pagination">
     <%== pagy_nav(@pagy) %>
   </div>
-  <!-- Dialog Element -->
-  <dialog data-dialog-target="dialog" class="dialog">
-    <!-- Close Button (Optional) -->
-    <button type="button" class="dialog__close-button" data-action="dialog#close">
-      &times;
-    </button>
-    <!-- Alert Icon -->
-    <div class="dialog__icon-container">
-      <%= inline_svg 'alert-triangle.svg', class: 'dialog__icon' %>
-    </div>
-    <!-- Dialog Title -->
-    <h2 class="dialog__title">Delete Post?</h2>
-    <!-- Post Title -->
-    <p class="dialog__post-title"></p>
-    <!-- Action Buttons -->
-    <div class="dialog__buttons">
-      <!-- Delete Button -->
-      <form data-dialog-target="form" method="post" action="">
-        <input type="hidden" name="_method" value="delete">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <button type="submit" class="dialog__delete-button">Delete</button>
-      </form>
-      <!-- Cancel Button -->
-      <button type="button" class="dialog__cancel-button" data-action="dialog#close">Cancel</button>
-    </div>
-  </dialog>
+  <%= render "dialog" %>
 </section>
