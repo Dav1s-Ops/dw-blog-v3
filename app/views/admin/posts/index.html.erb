@@ -1,4 +1,4 @@
-<section class="admin-posts">
+<section data-controller="dialog" class="admin-posts">
   <h1 class="admin-posts__title">Post Management</h1>
   <%= link_to new_admin_post_path, class: "admin-posts__add-button" do %>
     <%= inline_svg "add-ellipse.svg", class: "admin-posts__add-button-icon" %>
@@ -31,7 +31,7 @@
                 <%= inline_svg 'edit-icon.svg', class: 'admin-posts__icon' %>
                 Edit
               <% end %>
-              <%= button_to admin_post_path(post), method: :delete, class: "admin-posts__action-link-Delete", data: { confirm: "Are you sure you want to delete this post?" } do %>
+              <%= button_tag type: 'button', data: { action: 'click->dialog#open', delete_url: admin_post_path(post), post_title: post.title }, class: "admin-posts__action-link-Delete" do %>
                 <%= inline_svg 'trash-icon.svg', class: 'admin-posts__icon' %>
                 <span class="admin-posts__action-text">Delete</span>
               <% end %>
@@ -44,4 +44,30 @@
   <div class="admin-posts__pagination">
     <%== pagy_nav(@pagy) %>
   </div>
+  <!-- Dialog Element -->
+  <dialog data-dialog-target="dialog" class="dialog">
+    <!-- Close Button (Optional) -->
+    <button type="button" class="dialog__close-button" data-action="dialog#close">
+      &times;
+    </button>
+    <!-- Alert Icon -->
+    <div class="dialog__icon-container">
+      <%= inline_svg 'alert-triangle.svg', class: 'dialog__icon' %>
+    </div>
+    <!-- Dialog Title -->
+    <h2 class="dialog__title">Delete Post?</h2>
+    <!-- Post Title -->
+    <p class="dialog__post-title"></p>
+    <!-- Action Buttons -->
+    <div class="dialog__buttons">
+      <!-- Delete Button -->
+      <form data-dialog-target="form" method="post" action="">
+        <input type="hidden" name="_method" value="delete">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <button type="submit" class="dialog__delete-button">Delete</button>
+      </form>
+      <!-- Cancel Button -->
+      <button type="button" class="dialog__cancel-button" data-action="dialog#close">Cancel</button>
+    </div>
+  </dialog>
 </section>
