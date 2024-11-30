@@ -125,6 +125,9 @@
 }
 
 .admin-posts__title-link {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-decoration: none;
   color: white;
   font-family: 'B612 Mono', monospace;
@@ -343,6 +346,11 @@ dialog::backdrop {
 }
 
 @media (max-width: 576px) {
+  .admin-posts__title-link {
+    white-space: nowrap;
+    max-width: 150px; /* Adjust this value to fit your layout */
+  }
+
   .admin-posts__table-cell {
     word-wrap: break-word;
   }

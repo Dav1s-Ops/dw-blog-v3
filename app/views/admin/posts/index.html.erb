@@ -20,10 +20,10 @@
           <td class="admin-posts__table-cell"><%= post.id %></td>
           <td class="admin-posts__table-cell">
             <%= link_to admin_post_path(post), class: "admin-posts__title-link" do %>
-              <%= post.title %>
+              <%= post.title.truncate_words(10) %>
             <% end %>
           </td>
-          <td class="admin-posts__table-cell"><%= post.slug %></td>
+          <td class="admin-posts__table-cell"><%= post.slug.truncate(22) %></td>
           <td class="admin-posts__table-cell"><%= post.status.capitalize %></td>
           <td class="admin-posts__table-cell">
             <div class="admin-posts__table-cell-buttons">
