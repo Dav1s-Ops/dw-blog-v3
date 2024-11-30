@@ -50,16 +50,17 @@
   width: 1.25rem;
   height: 1.25rem;
   fill: currentColor;
-  transition: transform 0.3s ease; /* Smooth animation for rotation */
+  transition: transform 0.3s ease;
 }
 
 .admin-posts__add-button:hover .admin-posts__add-button-icon {
-  transform: rotate(90deg); /* Rotate 45 degrees on hover */
+  transform: rotate(90deg);
 }
 
 .admin-posts__add-button-icon {
-  transform: rotate(0deg); /* Default position */
-}
+  transform: rotate(0deg);
+} 
+
 
 .admin-posts__table {
   width: 100%;
@@ -69,7 +70,7 @@
   border-radius: 6px;
   border: 1px solid var(--Gray, #363636);
   background: linear-gradient(360deg, black 0%, #121212 100%);
-  box-shadow: 10px 15px 80px var(--Green-Glow);
+  box-shadow: 0px 10px 100px -40px var(--Green-Glow);
   overflow: hidden;
 }
 
@@ -120,7 +121,7 @@
 
 .admin-posts__table-cell:nth-child(4),
 .admin-posts__table-cell:nth-child(5) {
-  width: 120px;
+  width: 75px;
 }
 
 .admin-posts__title-link {
@@ -196,4 +197,163 @@
   justify-content: center;
   align-items: stretch;
   width: 100%;
+}
+
+dialog:not([open]) {
+  display: none;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.30);
+  backdrop-filter: blur(6px);
+}
+
+.dialog {
+  width: 80%;
+  max-width: 400px;
+  background: radial-gradient(62.86% 62.86% at 50% 0%, #000 0%, #121212 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  border: 1px solid #363636;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.dialog__close-button {
+  align-self: flex-end;
+  color: var(--White);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0;
+}
+
+.dialog__icon-container {
+  padding: 6px;
+  background: rgba(242, 31, 81, 0.20);
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog__icon {
+  width: 40px;
+  height: 40px;
+}
+
+.dialog__title {
+  font-size: 14px;
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+}
+
+.dialog__post-title {
+  font-size: 10px;
+  font-family: 'B612 Mono', monospace;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  margin: 0;
+}
+
+.dialog__buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog__delete-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--Black-Gradient-Reverse, linear-gradient(0deg, #000 0%, #121212 100%));
+  border: 1px solid var(--Gray);
+  border-radius: 6px;
+  color: var(--Electro-Red);
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, border 0.3s ease-out;
+  text-align: center;
+}
+
+.dialog__delete-button:hover,
+.dialog__delete-button:focus {
+  color: white;
+  border: 1px solid var(--Electro-Red, #F21F51); 
+  background: var(--Electro-Red-Gradient);
+  outline: 1px solid rgba(242, 31, 81, 0.5); 
+  outline-offset: 2px;
+}
+
+
+.dialog__buttons {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.dialog__cancel-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--Black-Gradient-Reverse, linear-gradient(0deg, #000 0%, #121212 100%));
+  border: 1px solid var(--Gray, #363636);
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, border 0.3s ease-out;
+  text-align: center;
+}
+
+.dialog__cancel-button:hover,
+.dialog__cancel-button:focus {
+  border: 1px solid var(--Gray, #363636); 
+  background: var(--Gray-Gradient);
+  outline: 1px solid rgba(106, 105, 105, 0.5); 
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .admin-posts__table-header:nth-child(3),
+  .admin-posts__table-cell:nth-child(3) {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-posts__table-cell {
+    word-wrap: break-word;
+  }
+
+  .admin-posts__table-header:nth-child(1),
+  .admin-posts__table-cell:nth-child(1) {
+    display: none;
+  }
+
+  .admin-posts__table-header:nth-child(4),
+  .admin-posts__table-cell:nth-child(4) {
+    display: none;
+  }
 }
