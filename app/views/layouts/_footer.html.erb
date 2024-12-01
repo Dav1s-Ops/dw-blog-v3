@@ -57,11 +57,33 @@
   <!-- Contact Dialog -->
   <dialog id="contact-dialog" class="footer-contact-dialog">
     <button type="button" class="footer-dialog__close-button" onclick="document.getElementById('contact-dialog').close()">&times;</button>
-    <div class="footer-dialog__content">
-      <p>This is the Contact dialog. Customize this text with your "Contact" content!</p>
-    </div>
-    <div class="footer-dialog__buttons">
-      <button type="button" class="footer-dialog__cancel-button" onclick="document.getElementById('contact-dialog').close()">Close</button>
-    </div>
+    <form class="contact-form">
+      <div class="contact-form__heading">
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-form__subheading">
+        <p>Feel free to drop a line below with any feedback, suggestions or questions!</p>
+      </div>
+      <div class="contact-form__field">
+        <label for="email" class="contact-form__label">Email</label>
+        <input type="email" id="email" name="email" class="contact-form__input" placeholder="Your email">
+      </div>
+      <div class="contact-form__field">
+        <label for="message" class="contact-form__label">Message</label>
+        <textarea id="message" name="message" class="contact-form__textarea" placeholder="Your message"></textarea>
+      </div>
+      <div class="contact-form__checkbox-field">
+        <input type="checkbox" id="send_copy" name="send_copy" class="contact-form__checkbox">
+        <label for="send_copy" class="contact-form__checkbox-label">Send me a copy</label>
+      </div>
+      <h2 class="contact-form__message">
+        ⚠️ This form is under construction. Come back soon! ⚠️
+      </h2>
+      <div class="contact-form__buttons">
+        <button type="submit" class="contact-form__button" disabled>
+          <span class="contact-form__button-text">Submit</span>
+        </button>
+      </div>
+    </form>
   </dialog>
 </div>
