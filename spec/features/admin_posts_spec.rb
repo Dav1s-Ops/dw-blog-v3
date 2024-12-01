@@ -26,26 +26,26 @@ RSpec.feature "Admin Posts", type: :feature do
 
   context 'when rendering the new post form' do
     it 'displays the form elements correctly' do
-      expect(page).to have_selector('form.ANP-container')
+      expect(page).to have_selector('form.add-post-form__container')
 
-      within '.ANP-content' do
-        expect(page).to have_selector('textarea.ANP-content-input')
+      within '.add-post-form__content' do
+        expect(page).to have_selector('textarea.add-post-form__content-input')
       end
 
-      within '.ANP-attributes' do
-        expect(page).to have_selector('input.ANP-input', count: 1)
-        expect(page).to have_selector('textarea.ANP-input.ANP-textarea')
-        expect(page).to have_selector('select.ANP-input')
+      within '.add-post-form__attributes' do
+        expect(page).to have_selector('input.add-post-form__input', count: 1)
+        expect(page).to have_selector('textarea.add-post-form__input.add-post-form__textarea')
+        expect(page).to have_selector('select.add-post-form__input')
       end
 
-      within '.ANP-checkbox-group' do
+      within '.add-post-form__checkbox-group' do
         categories.each do |category|
           expect(page).to have_field("category_#{category.id}", type: 'checkbox', checked: false)
           expect(page).to have_field("post[category_ids][]", type: 'checkbox', with: category.id.to_s)
         end
       end
 
-      within '.ANP-buttons' do
+      within '.add-post-form__buttons' do
         expect(page).to have_button('Preview (Under Construction)')
         expect(page).to have_button('Save Post')
       end
@@ -54,7 +54,7 @@ RSpec.feature "Admin Posts", type: :feature do
 
   context 'when submitting a valid post' do
     it 'creates a new post' do
-      within 'form.ANP-container' do
+      within 'form.add-post-form__container' do
         fill_in 'Title', with: 'Test Post Title'
         fill_in 'Tags', with: 'Tag1, Tag2, Tag3'
         fill_in 'post_content', with: 'This is the content of the test post.'
@@ -87,7 +87,7 @@ RSpec.feature "Admin Posts", type: :feature do
       @existing_post = Post.create(title: 'Existing Post', content: 'This is a unique post.', categories: categories, tags: tags, user: admin)
       visit edit_admin_post_path(@existing_post)
 
-      within 'form.ANP-container' do
+      within 'form.add-post-form__container' do
         fill_in 'Title', with: 'Updated Post Title'
         uncheck categories.first.name
         select 'Published', from: 'Status'

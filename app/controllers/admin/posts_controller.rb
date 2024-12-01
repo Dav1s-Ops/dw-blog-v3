@@ -1,8 +1,12 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_categories, only: [ :new, :create, :edit, :update, :preview ]
-  before_action :set_post, only: [ :edit, :update, :destroy, :preview ]
+  before_action :set_post, only: [ :edit, :show, :update, :destroy, :preview ]
   def index
+    @pagy, @posts = pagy(Post.order(created_at: :desc), limit: 10)
+  end
+
+  def show
   end
 
   def new
@@ -34,6 +38,11 @@ class Admin::PostsController < ApplicationController
   end
 
   def destroy
+    if @post.destroy
+      redirect_to admin_posts_path, notice: "Post deleted."
+    else
+      redirect_to admin_posts_path, alert: "Unable to delete the post."
+    end
   end
 
   def preview

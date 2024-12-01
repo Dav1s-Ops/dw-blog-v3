@@ -1,2 +1,48 @@
-<h1>Admin::Posts#index</h1>
-<p>Find me in app/views/admin/posts/index.html.erb</p>
+<section data-controller="dialog" class="admin-posts">
+  <h1 class="admin-posts__title">Post Management</h1>
+  <%= link_to new_admin_post_path, class: "admin-posts__add-button" do %>
+    <%= inline_svg "add-ellipse.svg", class: "admin-posts__add-button-icon" %>
+    Add New Post
+  <% end %>
+  <table class="admin-posts__table">
+    <thead>
+      <tr>
+        <th class="admin-posts__table-header">ID</th>
+        <th class="admin-posts__table-header">Title</th>
+        <th class="admin-posts__table-header">Slug</th>
+        <th class="admin-posts__table-header">Status</th>
+        <th class="admin-posts__table-header">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td class="admin-posts__table-cell"><%= post.id %></td>
+          <td class="admin-posts__table-cell">
+            <%= link_to admin_post_path(post), class: "admin-posts__title-link" do %>
+              <%= post.title.truncate_words(10) %>
+            <% end %>
+          </td>
+          <td class="admin-posts__table-cell"><%= post.slug.truncate(22) %></td>
+          <td class="admin-posts__table-cell"><%= post.status.capitalize %></td>
+          <td class="admin-posts__table-cell">
+            <div class="admin-posts__table-cell-buttons">
+              <%= link_to edit_admin_post_path(post), class: "admin-posts__action-link-Edit" do %>
+                <%= inline_svg 'edit-icon.svg', class: 'admin-posts__icon' %>
+                Edit
+              <% end %>
+              <%= button_tag type: 'button', data: { action: 'click->dialog#open', delete_url: admin_post_path(post), post_title: post.title }, class: "admin-posts__action-link-Delete" do %>
+                <%= inline_svg 'trash-icon.svg', class: 'admin-posts__icon' %>
+                <span class="admin-posts__action-text">Delete</span>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="admin-posts__pagination">
+    <%== pagy_nav(@pagy) %>
+  </div>
+  <%= render "dialog" %>
+</section>

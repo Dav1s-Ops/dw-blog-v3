@@ -64,3 +64,6 @@ gem "chartkick", "~> 5.1"
 
 gem "redcarpet", "~> 3.6"
 gem "rouge", "~> 4.4"
+
+gem "pagy", "~> 9.3"
+gem "inline_svg", "~> 1.10"

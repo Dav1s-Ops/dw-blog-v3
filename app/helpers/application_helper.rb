@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include Pagy::Frontend
   class HTMLWithRouge < Redcarpet::Render::HTML
     def block_code(code, language)
       lexer = Rouge::Lexer.find_fancy(language || "text", code)
