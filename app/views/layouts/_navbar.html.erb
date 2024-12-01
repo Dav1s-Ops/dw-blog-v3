@@ -25,18 +25,10 @@
       aria-labelledby="navbar_menu_button"
     >
       <%= link_to "Home", root_path, class: "dropdown-link" %>
-      <button 
-        type="button" 
-        class="dropdown-link-button" 
-        onclick="document.getElementById('about-dialog').showModal()">
-        About
-      </button>
-      <button 
-        type="button" 
-        class="dropdown-link-button" 
-        onclick="document.getElementById('contact-dialog').showModal()">
-        Contact
-      </button>
+      <div data-controller="footer-dialog">
+        <%= button_tag "About", type: "button", class: "dropdown-link-button", data: { action: "footer-dialog#open", dialog_id: "about-dialog" } %>
+        <%= button_tag "Contact", type: "button", class: "dropdown-link-button", data: { action: "footer-dialog#open", dialog_id: "contact-dialog" } %>
+      </div>
       <% if user_signed_in? %>
         <%= link_to "Dashboard", admin_dashboard_path, class: "dropdown-link" %>
         <%= link_to "Posts", admin_posts_path, class: "dropdown-link" %>

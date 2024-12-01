@@ -1,18 +1,18 @@
-<div class="footer">
+<div class="footer" data-controller="footer-dialog">
   <div class="footer-content">
     <div class="footer-text">© Davis Weimer 2024</div>
     <div class="footer-links">
       <div class="footer-link">
-        <button type="button" onclick="document.getElementById('about-dialog').showModal()">About</button>
+        <%= button_tag "About", type: "button", data: { action: "footer-dialog#open", dialog_id: "about-dialog" } %>
       </div>
       <div class="footer-link">
-        <button type="button" onclick="document.getElementById('contact-dialog').showModal()">Contact</button>
+        <%= button_tag "Contact", type: "button", data: { action: "footer-dialog#open", dialog_id: "contact-dialog" } %>
       </div>
     </div>
   </div>
   <!-- About Dialog -->
   <dialog id="about-dialog" class="footer-about-dialog">
-    <button type="button" class="footer-dialog__close-button" onclick="document.getElementById('about-dialog').close()">&times;</button>
+    <%= button_tag "&times;".html_safe, type: "button", class: "footer-dialog__close-button", data: { action: "footer-dialog#close" }, aria_label: "Close dialog" %>
     <div class="about-dialog__content">
       <div class="about-dialog__main">
         <div class="about-dialog__header">About</div>
@@ -56,7 +56,7 @@
   </dialog>
   <!-- Contact Dialog -->
   <dialog id="contact-dialog" class="footer-contact-dialog">
-    <button type="button" class="footer-dialog__close-button" onclick="document.getElementById('contact-dialog').close()">&times;</button>
+    <%= button_tag "&times;".html_safe, type: "button", class: "footer-dialog__close-button", data: { action: "footer-dialog#close" }, aria_label: "Close dialog" %>
     <form class="contact-form">
       <div class="contact-form__heading">
         <h2>Contact</h2>
