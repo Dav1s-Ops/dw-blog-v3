@@ -1,8 +1,5 @@
 .footer {
   width: 100%;
-  height: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,7 +14,7 @@
 
 .footer-text {
   text-align: center;
-  color: var(--Gray, #363636);
+  color: var(--Gray);
   font-size: 12px;
   font-family: Lato, sans-serif;
   font-weight: 400;
@@ -44,6 +41,7 @@
   cursor: pointer;
   text-decoration: none;
   padding: 0;
+  transition: color 0.4s ease, text-decoration 0.5s ease-out;
 }
 
 .footer-link button:hover {
@@ -51,20 +49,21 @@
   text-decoration: underline;
 }
 
-
-/* General Dialog Styling */
+/* About Dialog Styles */
 .footer-about-dialog {
-  width: 85%;
+  width: 100%;
   max-width: 360px;
   background: radial-gradient(circle, black 0%, #121212 100%);
-  box-shadow: 0 0 100px #0dae5e;
-  border: 1px solid #363636;
+  box-shadow: 0px 10px 100px -40px var(--Green-Glow);
+  border: 1px solid var(--Gray);
   border-radius: 12px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .footer-dialog__close-button {
@@ -80,11 +79,13 @@
 
 /* About Dialog Content */
 .about-dialog__content {
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  width: 100%;
+  box-sizing: border-box;
 }
 
 .about-dialog__close-icon {
@@ -191,4 +192,202 @@
 .about-dialog__commit-message {
   font-size: 12px;
   text-align: center;
+}
+
+/* Contact Dialog Styles */
+.footer-contact-dialog {
+  width: 100%;
+  max-width: 360px;
+  background: radial-gradient(100% 100% at center, black 0%, #121212 100%);
+  box-shadow: 0px 10px 100px -40px var(--Green-Glow);
+  border-radius: 12px;
+  border: 1px var(--Gray) solid;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  position: relative;
+  box-sizing: border-box; 
+}
+
+.footer-dialog__close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.contact-form {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.contact-form__heading h2 {
+  text-align: center;
+  color: #0DAE5E;
+  font-size: 16px;
+  font-family: Unbounded, sans-serif;
+  font-weight: 300;
+  margin: 0;
+}
+
+.contact-form__subheading p {
+  text-align: center;
+  color: white;
+  font-size: 10px;
+  font-family: 'B612 Mono', monospace;
+  font-weight: 400;
+  line-height: 16px;
+  margin: 0;
+}
+
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-form__label {
+  color: white;
+  font-size: 12px;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.contact-form__input,
+.contact-form__textarea {
+  width: 100%;
+  padding: 10px;
+  background: black;
+  border-radius: 6px;
+  border: 1px var(--Gray) solid;
+  color: white;
+  font-size: 10px;
+  font-family: 'B612 Mono', monospace;
+  line-height: 16px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.contact-form__textarea {
+  height: 180px;
+  resize: none;
+}
+
+.contact-form__checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-form__checkbox {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  border: 1px var(--Gray) solid;
+  background: none;
+  cursor: pointer;
+}
+
+.contact-form__checkbox-label {
+  color: white;
+  font-size: 12px;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.contact-form__message {
+  color: white;
+  font-size: 12px;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+}
+
+.contact-form__buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form__button {
+  width: 100%;
+  height: 32px;
+  padding: 6px 10px;
+  background: var(--Black-Gradient-Reverse, linear-gradient(0deg, #000 0%, #121212 100%));
+  border: 1px solid var(--Gray);
+  border-radius: 6px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: not-allowed;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, border 0.3s ease-out;
+}
+
+.contact-form__button:hover,
+.contact-form__button:focus {
+  border: 1px solid var(--Gray); 
+  background: rgba(76, 76, 76, 0.8);
+  outline: 2px solid rgba(59, 59, 59, 0.5); 
+  outline-offset: 2px;
+}
+
+.contact-form__button-text {
+  color: rgb(156, 156, 156);
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+}
+
+.contact-form__input:focus,
+.contact-form__textarea:focus {
+  border-color: var(--Electro-Forest-Green);
+  box-shadow: 0px 0px 10px var(--Green-Glow);
+}
+
+.contact-form__checkbox {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  border: 1px var(--Gray) solid;
+  background: none;
+  cursor: pointer;
+  appearance: none;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.contact-form__checkbox:checked {
+  background-color: var(--Electro-Forest-Green, #0DAE5E);
+  border-color: var(--Electro-Forest-Green, #0DAE5E);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.2l-3.5-3.5L4.3 14l4.7 4.7L20.7 7.7l-1.4-1.4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.contact-form__checkbox:focus {
+  outline: 2px solid var(--Electro-Forest-Green);
+  outline-style: double;
+}
+
+.contact-form__input:-webkit-autofill,
+.contact-form__input:-webkit-autofill:hover,
+.contact-form__input:-webkit-autofill:focus {
+  background-color: rgba(var(--Electro-Forest-Green-RGB), 0.1) !important;
+  box-shadow: 0 0 0px 1000px #000 inset !important;
+  border-color: var(--Electro-Forest-Green) !important;
+  color: var(--White) !important;
+  -webkit-text-fill-color: var(--White) !important;
+  transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
 }
