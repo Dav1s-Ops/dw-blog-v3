@@ -15,6 +15,7 @@
  *= require posts
  *= require add-new-post
  *= require navbar
+ *= require footer
  *= require post-management
  *= require pagy
  */
