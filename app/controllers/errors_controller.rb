@@ -6,6 +6,10 @@ class ErrorsController < ApplicationController
     end
   end
 
+  def trigger_500
+    raise "Intentional 500 error for testing"
+  end
+
   def internal_server_error
     respond_to do |format|
       format.html { render :internal_server_error, status: :internal_server_error }

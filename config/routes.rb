@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   
   # Defines the root path route ("/")
   # root "posts#index"
-
+  get '/trigger_500', to: 'errors#trigger_500'
   # Route for 500 error
   match "/500", to: "errors#internal_server_error", via: :all
 
