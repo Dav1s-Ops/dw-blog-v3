@@ -24,7 +24,7 @@
   justify-content: center;
   gap: 8px;
   padding: 10px 20px;
-  background: var(--Black-Gradient-Reverse, linear-gradient(0deg, #000 0%, #121212 100%));
+  background: var(--Electro-Forest-Green);
   border: 1px solid var(--Gray);
   border-radius: 6px;
   color: white;
@@ -280,10 +280,10 @@ dialog::backdrop {
   width: 100%;
   gap: 8px;
   padding: 10px 20px;
-  background: var(--Black-Gradient-Reverse, linear-gradient(0deg, #000 0%, #121212 100%));
+  background: var(--Electro-Red);
   border: 1px solid var(--Gray);
   border-radius: 6px;
-  color: var(--Electro-Red);
+  color: white;
   font-size: 16px;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
@@ -298,7 +298,7 @@ dialog::backdrop {
 .dialog__delete-button:focus {
   color: white;
   border: 1px solid var(--Electro-Red, #F21F51); 
-  background: var(--Electro-Red-Gradient);
+  background: rgba(242, 31, 81, 0.75);
   outline: 1px solid rgba(242, 31, 81, 0.5); 
   outline-offset: 2px;
 }
@@ -316,7 +316,7 @@ dialog::backdrop {
   justify-content: center;
   gap: 8px;
   padding: 10px 20px;
-  background: var(--Black-Gradient-Reverse, linear-gradient(0deg, #000 0%, #121212 100%));
+  background: var(--Gray);
   border: 1px solid var(--Gray, #363636);
   border-radius: 6px;
   color: white;
@@ -333,7 +333,7 @@ dialog::backdrop {
 .dialog__cancel-button:hover,
 .dialog__cancel-button:focus {
   border: 1px solid var(--Gray, #363636); 
-  background: var(--Gray-Gradient);
+  background: rgba(106, 105, 105, 0.5);
   outline: 1px solid rgba(106, 105, 105, 0.5); 
   outline-offset: 2px;
 }
