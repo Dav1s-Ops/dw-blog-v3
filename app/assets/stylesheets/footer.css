@@ -133,9 +133,13 @@
   border-radius: 50%;
 }
 
-.about-dialog__bio {
+.about-dialog__bio > p {
+  margin: 0;
+  text-overflow: ellipsis;
+  font-family: Lato;
   font-size: 12px;
-  font-family: Lato, sans-serif;
+  font-style: normal;
+  font-weight: 400;
   line-height: 20px;
 }
 
@@ -160,6 +164,11 @@
   align-items: center;
   padding-bottom: 8px;
   border-bottom: 1px solid #0dae5e;
+  font-family: Unbounded;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .about-dialog__recent-image {
@@ -178,6 +187,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: Unbounded;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .about-dialog__github-icon {
@@ -195,8 +209,12 @@
 }
 
 .about-dialog__commit-message {
-  font-size: 12px;
   text-align: center;
+  font-family: B612 Mono;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
 }
 
 /* Contact Dialog Styles */
@@ -247,11 +265,13 @@
 .contact-form__subheading p {
   text-align: center;
   color: white;
-  font-size: 10px;
-  font-family: 'B612 Mono', monospace;
+  font-family: Lato;
+  font-size: 12px;
+  font-style: normal;
   font-weight: 400;
-  line-height: 16px;
+  line-height: 20px;
   margin: 0;
+  padding: 0 20px 0 20px;
 }
 
 .contact-form__field {

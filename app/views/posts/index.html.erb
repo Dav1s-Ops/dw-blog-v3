@@ -1,7 +1,7 @@
 <section class="posts-container">
   <figure class="categories-bar-container">
     <div class="title-container">
-      <div class="title-text">Categories</div>
+      <div class="unbounded-table-header">Categories</div>
       <%= image_tag "question-filled.svg", class: "question-filled", alt: "text" %>
     </div>
     <div class="category-selectors">
@@ -12,7 +12,8 @@
   <% if @posts.present? %>
     <% @posts.each do |post| %>
       <div class="post">
-        <h2><%= link_to post.title, post_path(post) %></h2>
+        <p class="unbounded-date-text" style=""><%= post.created_at %></p>
+        <h2 class="unbounded-title-text"><%= link_to post.title, post_path(post) %></h2>
         <p><%= truncate(post.content, length: 100) %></p>
         <%= link_to 'Read More', post_path(post) %>
       </div>

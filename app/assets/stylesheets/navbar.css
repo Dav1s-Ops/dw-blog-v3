@@ -94,6 +94,15 @@
   box-sizing: border-box;
 }
 
+.dropdown-menu .dropdown-link,
+.dropdown-menu .dropdown-link-button {
+  font-family: "Unbounded";
+  font-size: 12px;
+  font-weight: 200;
+  letter-spacing: 0.3px;
+
+}
+
 .menu-icon {
   width: 16px;
   height: 16px;

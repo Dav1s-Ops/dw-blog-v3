@@ -12,7 +12,7 @@ module PostsHelper
   end
 
   def posts_header(current_category)
-    title = current_category ? "Posts in #{current_category.name} Category" : "All Posts"
-    content_tag(:h2, title, class: "post-by-cat")
+    title = current_category ? "#{current_category.name} Posts" : "All Posts"
+    content_tag(:h2, title, class: "unbounded-title-text")
   end
 end
