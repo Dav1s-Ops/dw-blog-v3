@@ -105,3 +105,30 @@ body::before {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+
+/* FONTS FONTS FONTS! */
+
+.unbounded-title-text {
+  font-size: 20px;
+  font-family: Unbounded;
+  font-weight: 700;
+}
+
+.unbounded-date-text {
+  font-size: 12px;
+  font-family: Unbounded;
+  font-weight: 300;
+}
+
+.unbounded-table-header {
+  font-size: 14px;
+  font-family: Unbounded;
+  font-weight: 600;
+}
+
+.unbounded-cat-text {
+  font-size: 12px;
+  font-family: Unbounded;
+  font-weight: 400;
+}
