@@ -113,6 +113,7 @@ body::before {
   font-size: 20px;
   font-family: Unbounded;
   font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
 .unbounded-date-text {
@@ -124,7 +125,8 @@ body::before {
 .unbounded-table-header {
   font-size: 14px;
   font-family: Unbounded;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
 .unbounded-cat-text {
