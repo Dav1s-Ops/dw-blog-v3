@@ -1,0 +1,15 @@
+<div class="footer" data-controller="footer-dialog">
+  <div class="footer-content">
+    <div class="footer-text">© Davis Weimer 2024</div>
+    <div class="footer-links">
+      <div class="footer-link">
+        <%= button_tag "About", type: "button", data: { action: "footer-dialog#open", dialog_id: "about-dialog" } %>
+      </div>
+      <div class="footer-link">
+        <%= button_tag "Contact", type: "button", data: { action: "footer-dialog#open", dialog_id: "contact-dialog" } %>
+      </div>
+    </div>
+  </div>
+  <%= render "layouts/about" %>
+  <%= render "layouts/contact" %>
+</div>

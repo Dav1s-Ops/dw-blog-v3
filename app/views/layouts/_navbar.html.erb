@@ -13,7 +13,7 @@
       data-action="click->dropdown#toggle click@window->dropdown#hide"
       aria-haspopup="true"
       aria-expanded="false"
-    >
+      >
       Menu
       <%= image_tag "menu-icon.svg", alt: "Menu", class: "menu-icon" %>
     </button>
@@ -25,6 +25,10 @@
       aria-labelledby="navbar_menu_button"
     >
       <%= link_to "Home", root_path, class: "dropdown-link" %>
+      <div data-controller="footer-dialog">
+        <%= button_tag "About", type: "button", class: "dropdown-link-button", data: { action: "footer-dialog#open", dialog_id: "about-dialog" } %>
+        <%= button_tag "Contact", type: "button", class: "dropdown-link-button", data: { action: "footer-dialog#open", dialog_id: "contact-dialog" } %>
+      </div>
       <% if user_signed_in? %>
         <%= link_to "Dashboard", admin_dashboard_path, class: "dropdown-link" %>
         <%= link_to "Posts", admin_posts_path, class: "dropdown-link" %>
