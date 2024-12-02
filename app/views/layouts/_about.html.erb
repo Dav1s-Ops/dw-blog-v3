@@ -1,43 +1,47 @@
 <dialog id="about-dialog" class="footer-about-dialog">
-    <%= button_tag "&times;".html_safe, type: "button", class: "footer-dialog__close-button", data: { action: "footer-dialog#close" }, aria_label: "Close dialog" %>
-    <div class="about-dialog__content">
-      <div class="about-dialog__main">
-        <div class="about-dialog__header">About</div>
-        <div class="about-dialog__info">
-          <div class="about-dialog__name">Davis Weimer</div>
-          <%= image_tag "dw-pic.png", alt: "Avatar", class: "about-dialog__avatar" %>
+  <%= button_tag "&times;".html_safe, type: "button", class: "footer-dialog__close-button", data: { action: "footer-dialog#close" }, aria_label: "Close dialog" %>
+  <div class="about-dialog__content">
+    <div class="about-dialog__main">
+      <div class="about-dialog__header">About</div>
+      <div class="about-dialog__info">
+        <div class="about-dialog__name">Davis Weimer</div>
+        <%= image_tag "dw-pic.png", alt: "Avatar", class: "about-dialog__avatar" %>
+      </div>
+      <div class="about-dialog__bio">
+        <p>
+          Hi, my name is Davis and I'm a Software Engineer with a background in Audio Engineering. When I am not programming I love listening to, collecting, and making music.
+          Check out my <a href='https://soundcloud.com/berrik' target='_blank' rel='noopener noreferrer' class="about-dialog__link">SoundCloud</a> to see what I've been working on. I also enjoy reading (especially sci-fi space operas), playing video games,
+          <a href='https://www.mixcloud.com/da-5k/' target='_blank' rel='noopener noreferrer' class="about-dialog__link">DJing</a>, and spending time with my partner Mary and our dog.
+        </p>
+      </div>
+      <div class="about-dialog__recent">
+        <div class="about-dialog__recent-header">
+          Recently Played
+          <%= image_tag "spotify-logo.png", alt: "Spotify Logo", class: "about-dialog__recent-image" %>
         </div>
-        <div class="about-dialog__bio">
-          <p>
-            Hi, my name is Davis and I'm a Software Engineer with a background in Audio Engineering. When I am not programming I love listening to, collecting, and making music.
-            Check out my <a href='https://soundcloud.com/berrik' target='_blank' rel='noopener noreferrer' class="about-dialog__link">SoundCloud</a> to see what I've been working on. I also enjoy reading (especially sci-fi space operas), playing video games,
-            <a href='https://www.mixcloud.com/da-5k/' target='_blank' rel='noopener noreferrer' class="about-dialog__link">DJing</a>, and spending time with my partner Mary and our dog.
-          </p>
+        <div class="about-dialog__content">
+          <a href="https://github.com/kittinan/spotify-github-profile">
+            <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=davis.weimer&cover_image=true&theme=novatorem&show_offline=false&background_color=0DAE5E&interchange=false&bar_color=53b14f&bar_color_cover=false" alt="spotify-github-profile" />
+          </a>
         </div>
-        <div class="about-dialog__recent">
-          <div class="about-dialog__recent-header">
-            Recently Played
-            <%= image_tag "spotify-logo.png", alt: "Spotify Logo", class: "about-dialog__recent-image" %>
-          </div>
-          <%= image_tag "spotify-placeholder.png", alt: "Recently Played"%>
+      </div>
+      <div class="about-dialog__github">
+        <div class="about-dialog__github-header">
+          GitHub
+          <%= image_tag "github-logo.svg", alt: "Github logo", class: "about-dialog__github-icon" %>
         </div>
-        <div class="about-dialog__github">
-          <div class="about-dialog__github-header">
-            GitHub
-            <%= image_tag "github-logo.svg", alt: "Github logo", class: "about-dialog__github-icon" %>
-          </div>
-        </div>
-        <div class="about-dialog__footer">
-          <div class="about-dialog__commit-message">Commit often to keep the Octocat fed!</div>
-          <picture>
-            <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Dav1s-Ops/Dav1s-Ops/output/github-contribution-grid-snake.svg">
-            <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Dav1s-Ops/Dav1s-Ops/output/github-contribution-grid-snake-dark.svg">
-            <img src="https://raw.githubusercontent.com/Dav1s-Ops/Dav1s-Ops/output/github-contribution-grid-snake-dark.svg" 
+      </div>
+      <div class="about-dialog__footer">
+        <div class="about-dialog__commit-message">Commit often to keep the Octocat fed!</div>
+        <picture>
+          <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Dav1s-Ops/Dav1s-Ops/output/github-contribution-grid-snake.svg">
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Dav1s-Ops/Dav1s-Ops/output/github-contribution-grid-snake-dark.svg">
+          <img src="https://raw.githubusercontent.com/Dav1s-Ops/Dav1s-Ops/output/github-contribution-grid-snake-dark.svg" 
               alt="nom nom nom, a snake eats my commits!" 
               style="width: 100%; max-width: none; height: auto;" 
               title="hungry snake">
-          </picture>
-        </div>
+        </picture>
       </div>
     </div>
-  </dialog>
+  </div>
+</dialog>
