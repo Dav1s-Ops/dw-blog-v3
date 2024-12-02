@@ -62,7 +62,6 @@
   flex-direction: column;
   align-items: center;
   color: white;
-  position: relative;
   box-sizing: border-box;
 }
 
@@ -213,7 +212,6 @@
   flex-direction: column;
   align-items: center;
   color: white;
-  position: relative;
   box-sizing: border-box; 
 }
 
