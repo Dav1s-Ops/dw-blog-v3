@@ -333,7 +333,7 @@ dialog::backdrop {
 .dialog__cancel-button:hover,
 .dialog__cancel-button:focus {
   border: 1px solid var(--Gray, #363636); 
-  background: rgba(106, 105, 105, 0.75);
+  background: rgba(106, 105, 105, 0.5);
   outline: 1px solid rgba(106, 105, 105, 0.5); 
   outline-offset: 2px;
 }
