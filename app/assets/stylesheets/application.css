@@ -19,6 +19,7 @@
  *= require post-management
  *= require pagy
  *= require login
+ *= require not-found
  */
 :root {
   --Gray: #363636;
