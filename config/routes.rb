@@ -30,13 +30,4 @@ Rails.application.routes.draw do
   # Render dynamic PWA files from app/views/pwa/*
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  
-  # Defines the root path route ("/")
-  # root "posts#index"
-  get '/trigger_500', to: 'errors#trigger_500'
-  # Route for 500 error
-  match "/500", to: "errors#internal_server_error", via: :all
-
-  # 404 catch-all
-  match "*unmatched", to: "errors#not_found", via: :all
 end
