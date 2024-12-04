@@ -6,13 +6,271 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/application.css">
+  <style>
+    :root {
+    --Gray: #363636;
+    --White: #FFFFFF;
+    --Electro-Red: #F42053;
+    --Electro-Blue: #30C2F6;
+    --Electro-Forest-Green: #0DAE5E;
+    --Electro-Pink: #C225E0;
+    --Electro-Yellow: #F0AA05;
+    --Electro-Purple: #6027FF;
+    }
+
+    html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    color: var(--White, #FFF);
+  }
+
+  body {
+    display: flex;
+    padding: 12px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    overflow: auto;
+    background: none;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--Black-Gradient, linear-gradient(180deg, #000 0%, #121212 100%));
+    z-index: -1;
+  }
+
+    .error-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 520px;
+    height: 100%;
+    gap: 14px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+      box-sizing: border-box;
+      color: var(--White, #FFF);
+    }
+
+    body {
+      display: flex;
+      padding: 12px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      overflow: auto;
+      background: none;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--Black-Gradient, linear-gradient(180deg, #000 0%, #121212 100%));
+      z-index: -1;
+    }
+
+    .error-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 520px;
+      height: 100%;
+      gap: 14px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .error-icon-container {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      color: var(--Electro-Red);
+      animation: colorCycle 24s linear infinite alternate;
+    }
+
+    @keyframes colorCycle {
+      0% {
+        color: var(--Electro-Red);
+      }
+      20% {
+        color: var(--Electro-Blue);
+      }
+      40% {
+        color: var(--Electro-Forest-Green);
+      }
+      60% {
+        color: var(--Electro-Pink);
+      }
+      80% {
+        color: var(--Electro-Yellow);
+      }
+      100% {
+        color: var(--Electro-Purple);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes fade {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .error-icon-background {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+  .error-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 300px;
+    gap: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .error-title {
+    font-size: 4rem;
+    font-family: Unbounded;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  .error-title-message {
+    font-size: 1.25rem;
+    font-family: Unbounded;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    margin: 0;
+  }
+
+  .error-message {
+    text-align: center;
+    font-family: B612 Mono;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+    width: 200px;
+  }
+
+  .error-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--Electro-Forest-Green);
+    color: white;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid var(--Gray);
+    transition: background 0.3s ease, border 0.3s ease-out;
+  }
+
+  .error-button:hover {
+    border: 1px solid var(--Electro-Forest-Green, #0DAE5E); 
+    background: rgba(13, 174, 94, 0.8);
+    outline: 2px solid rgba(13, 174, 94, 0.5); 
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .error-wrapper {
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      box-sizing: border-box;
+    }
+
+    .error-content {
+      width: 300px;
+    }
+
+    .error-icon-container {
+      width: 80px;
+      height: 80px;
+    }
+
+    .error-title {
+      font-size: 3rem;
+    }
+
+    .error-message {
+      font-size: 0.75rem;
+    }
+  }
+  </style>
 </head>
 
 <body>
   <div class="error-wrapper">
     <div class="error-icon-container">
-      <img src="/assets/emoji-dizzy.svg" alt="Page Not Found" class="error-icon-background">
+      <svg
+        width="800px"
+        height="800px"
+        viewBox="0 0 24 24"
+        class="error-icon-background"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.70711 17.2938C8.31658 16.9033 8.31658 16.2701 8.70711 15.8796L10.584 14.0027L8.70793 12.1267C8.31741 11.7362 8.31741 11.103 8.70793 10.7125C9.09846 10.322 9.73162 10.322 10.1221 10.7125L11.9982 12.5885L13.8796 10.707C14.2702 10.3165 14.9033 10.3165 15.2939 10.707C15.6844 11.0975 15.6844 11.7307 15.2939 12.1212L13.4124 14.0027L15.293 15.8833C15.6835 16.2739 15.6835 16.907 15.293 17.2975C14.9025 17.6881 14.2693 17.6881 13.8788 17.2975L11.9982 15.4169L10.1213 17.2938C9.7308 17.6843 9.09763 17.6843 8.70711 17.2938Z"
+          fill="currentColor"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M1 4C1 2.34315 2.34315 1 4 1H7.76393C8.90025 1 9.93904 1.64201 10.4472 2.65836L11.3416 4.44721C11.511 4.786 11.8573 5 12.2361 5H20C21.6569 5 23 6.34315 23 8V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4ZM4 3C3.44772 3 3 3.44772 3 4V20C3 20.5523 3.44772 21 4 21H20C20.5523 21 21 20.5523 21 20V8C21 7.44772 20.5523 7 20 7H12.2361C11.0998 7 10.061 6.35799 9.55279 5.34164L8.65836 3.55279C8.48897 3.214 8.1427 3 7.76393 3H4Z"
+          fill="currentColor"
+        />
+      </svg>
     </div>
     <div class="error-content">
       <div class="error-title">422</div>
