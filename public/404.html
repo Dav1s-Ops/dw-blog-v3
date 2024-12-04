@@ -6,13 +6,275 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/application.css">
+  <style>
+    :root {
+    --Gray: #363636;
+    --White: #FFFFFF;
+    --Electro-Red: #F42053;
+    --Electro-Blue: #30C2F6;
+    --Electro-Forest-Green: #0DAE5E;
+    --Electro-Pink: #C225E0;
+    --Electro-Yellow: #F0AA05;
+    --Electro-Purple: #6027FF;
+    }
+
+    html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    color: var(--White, #FFF);
+  }
+
+  body {
+    display: flex;
+    padding: 12px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    overflow: auto;
+    background: none;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--Black-Gradient, linear-gradient(180deg, #000 0%, #121212 100%));
+    z-index: -1;
+  }
+
+    .error-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 520px;
+    height: 100%;
+    gap: 14px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+      box-sizing: border-box;
+      color: var(--White, #FFF);
+    }
+
+    body {
+      display: flex;
+      padding: 12px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      overflow: auto;
+      background: none;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--Black-Gradient, linear-gradient(180deg, #000 0%, #121212 100%));
+      z-index: -1;
+    }
+
+    .error-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 520px;
+      height: 100%;
+      gap: 14px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .error-icon-container {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      color: var(--Electro-Red);
+      animation: colorCycle 24s linear infinite alternate;
+    }
+
+    @keyframes colorCycle {
+      0% {
+        color: var(--Electro-Red);
+      }
+      20% {
+        color: var(--Electro-Blue);
+      }
+      40% {
+        color: var(--Electro-Forest-Green);
+      }
+      60% {
+        color: var(--Electro-Pink);
+      }
+      80% {
+        color: var(--Electro-Yellow);
+      }
+      100% {
+        color: var(--Electro-Purple);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes fade {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .error-icon-background {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+  .error-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 300px;
+    gap: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .error-title {
+    font-size: 4rem;
+    font-family: Unbounded;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  .error-title-message {
+    font-size: 1.25rem;
+    font-family: Unbounded;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    margin: 0;
+  }
+
+  .error-message {
+    text-align: center;
+    font-family: B612 Mono;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+    width: 200px;
+  }
+
+  .error-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--Electro-Forest-Green);
+    color: white;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid var(--Gray);
+    transition: background 0.3s ease, border 0.3s ease-out;
+  }
+
+  .error-button:hover {
+    border: 1px solid var(--Electro-Forest-Green, #0DAE5E); 
+    background: rgba(13, 174, 94, 0.8);
+    outline: 2px solid rgba(13, 174, 94, 0.5); 
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .error-wrapper {
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      box-sizing: border-box;
+    }
+
+    .error-content {
+      width: 300px;
+    }
+
+    .error-icon-container {
+      width: 80px;
+      height: 80px;
+    }
+
+    .error-title {
+      font-size: 3rem;
+    }
+
+    .error-message {
+      font-size: 0.75rem;
+    }
+  }
+  </style>
 </head>
 <body>
   <div class="error-wrapper">
     <div class="error-icon-container">
-      <img src="/assets/link-broken.svg" alt="Page Not Found" class="error-icon-background">
+      <svg
+        width="80"
+        height="81"
+        viewBox="0 0 80 81"
+        xmlns="http://www.w3.org/2000/svg"
+        class="error-icon-background"
+      >
+        <g clip-path="url(#clip0_29_1005)">
+          <g>
+            <path d="M33.5234 30.6865C35.6985 32.1883 38.6788 31.6419 40.1798 29.4669L52.1525 12.1233C53.7167 9.85724 56.833 9.28639 59.0988 10.8512L68.2278 17.1532C69.326 17.9111 70.0628 19.0511 70.3034 20.363C70.5436 21.6749 70.2588 23.0019 69.5005 24.0997L57.5281 41.4429C56.0268 43.6179 56.5726 46.598 58.7477 48.0993C59.5777 48.6723 60.5245 48.947 61.4618 48.947C62.9813 48.947 64.4756 48.2249 65.4041 46.8797L77.3763 29.5368C79.5868 26.3351 80.4179 22.4644 79.7168 18.6379C79.0156 14.8116 76.8665 11.4869 73.6647 9.27685L64.5359 2.97489C57.9268 -1.58773 48.8384 0.0773712 44.2763 6.68639L32.3036 24.0301C30.8022 26.2052 31.3481 29.1851 33.5234 30.6865Z" fill="currentColor" />
+            <path d="M41.0433 57.9281L23.6993 69.9011C22.6014 70.6592 21.2745 70.9447 19.9629 70.7037C18.651 70.4634 17.511 69.7262 16.7531 68.6284L10.4507 59.4992C8.88627 57.2332 9.45738 54.1169 11.7235 52.5527L29.0669 40.58C31.242 39.0787 31.7878 36.0986 30.2865 33.9235C28.7852 31.7484 25.8048 31.2018 23.6301 32.7039L6.2864 44.6767C-0.322622 49.2391 -1.98772 58.3275 2.57476 64.9367L8.87725 74.066C11.0877 77.2675 14.4123 79.4167 18.2383 80.1179C19.1242 80.2801 20.0119 80.3605 20.8936 80.3605C23.8208 80.3603 26.6769 79.4762 29.1373 77.7777L46.4807 65.8047C48.6557 64.3034 49.2016 61.3233 47.7003 59.1482C46.1984 56.9727 43.218 56.4263 41.0433 57.9281Z" fill="currentColor" />
+            <path d="M55.7181 26.9171C53.6039 25.3317 50.6045 25.7602 49.0186 27.8741L39.785 40.1853L27.4734 49.4196C25.3591 51.0053 24.9308 54.0049 26.5164 56.1188C27.4565 57.3724 28.8933 58.0331 30.3482 58.0331C31.3471 58.0331 32.355 57.7217 33.2157 57.0758L46.0743 47.4314C46.4371 47.1595 46.759 46.8371 47.0313 46.4744L56.6755 33.6164C58.2608 31.5022 57.8324 28.5029 55.7181 26.9171Z" fill="currentColor" />
+            <path d="M54.4251 61.7153L53.2831 76.5593C53.2439 77.0972 53.3244 77.6688 53.5455 78.201C54.301 80.0207 56.3889 80.8832 58.2083 80.1276C60.0281 79.3721 60.8906 77.2842 60.135 75.4645L54.4251 61.7153Z" fill="currentColor" />
+            <path d="M79.989 56.9666C79.838 55.0022 78.1228 53.5323 76.1582 53.6836L61.3146 54.8252L75.0635 60.5349C75.5624 60.7402 76.1309 60.8416 76.7054 60.7975C78.67 60.6466 80.1399 58.9314 79.989 56.9666Z" fill="currentColor" />
+          </g>
+        </g>
+        <defs>
+          <clipPath id="clip0_29_1005">
+            <rect width="80" height="80" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
     </div>
+    
     <div class="error-content">
       <div class="error-title">404</div>
       <p class="error-message">
