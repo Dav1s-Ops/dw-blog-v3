@@ -17,9 +17,28 @@
   position: relative;
 }
 
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 100;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
 .error-icon-background {
   width: 100%;
   height: 100%;
+  animation: bounce 2s ease-in-out infinite, fade 2s ease-in-out infinite alternate;
 }
 
 .error-content {
@@ -40,6 +59,14 @@
   letter-spacing: 0.3px;
 }
 
+.error-title-message {
+  font-size: 1.25rem;
+  font-family: Unbounded;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
 .error-message {
   text-align: center;
   font-family: B612 Mono;
@@ -48,6 +75,7 @@
   font-weight: 400;
   line-height: 20px;
   margin: 0;
+  width: 200px;
 }
 
 .error-button {
