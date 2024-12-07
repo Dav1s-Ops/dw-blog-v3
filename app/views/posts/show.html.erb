@@ -1,4 +1,19 @@
 <section class="posts-container">
-  <h1><%= @post.title %></h1>
-  <%= markdown(@post.content) %>
+  <p class="post-date"><%= formatted_post_date(@post) %></p>
+  <h1 class="post-title"><%= @post.title %></h1>
+  <div class="categories">
+    <% @post.categories.each do |category| %>
+      <%= link_to category_posts_path(category: category.slug), class: "category-tag", data: { category: category.name.downcase } do %>
+        <%= category.name %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="post-content">
+    <%= markdown(@post.content) %>
+  </div>
+  <div class="post-taglist">
+    <% @post.tags.each do |tag| %>
+      <span class="post-tag">#<%= tag.name %></span>
+    <% end %>
+  </div>
 </section>

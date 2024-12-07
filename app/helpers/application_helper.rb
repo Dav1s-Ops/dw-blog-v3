@@ -1,10 +1,20 @@
 module ApplicationHelper
   include Pagy::Frontend
+
   class HTMLWithRouge < Redcarpet::Render::HTML
     def block_code(code, language)
       lexer = Rouge::Lexer.find_fancy(language || "text", code)
       formatter = Rouge::Formatters::HTMLLegacy.new(css_class: "highlight")
-      formatter.format(lexer.lex(code))
+      highlighted_code = formatter.format(lexer.lex(code))
+
+      <<~HTML.html_safe
+        <div class="code-block-wrapper">
+          <div class="code-block-header">
+            <button class="copy-button" data-code="#{ERB::Util.html_escape(code)}">Copy</button>
+          </div>
+          #{highlighted_code}
+        </div>
+      HTML
     end
   end
 
