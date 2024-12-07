@@ -5,11 +5,12 @@
   justify-content: center;
   gap: 32px;
   width: 100%;
-  max-width: 825px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding-bottom: 12px;
+  padding-bottom: 1rem;
 }
 
+/* Categories Bar */
 .categories-bar-container {
   display: flex;
   width: 100%;
