@@ -15,4 +15,8 @@ module PostsHelper
     title = current_category ? "#{current_category.name} Posts" : "All Posts"
     content_tag(:h2, title, class: "unbounded-title-text")
   end
+
+  def formatted_post_date(post)
+    post.created_at.strftime("%b") + " " + post.created_at.day.ordinalize + ", " + post.created_at.strftime("%Y")
+  end
 end
