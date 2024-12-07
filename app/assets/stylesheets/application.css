@@ -20,9 +20,11 @@
  *= require pagy
  *= require login
  *= require not-found
+ *= require post-show
  */
 :root {
   --Gray: #363636;
+  --Light-Gray: #CECDCC;
   --White: #FFFFFF;
   --Electro-Red: #F42053;
   --Electro-Blue: #30C2F6;
@@ -75,21 +77,6 @@ body::before {
   height: 100vh;
   background: var(--Black-Gradient, linear-gradient(180deg, #000 0%, #121212 100%));
   z-index: -1;
-}
-
-.highlight {
-  border-radius: 6px;
-  width: 100%;
-}
-
-.highlight pre {
-  white-space: pre-wrap;
-  word-break: break-word;
-  margin: 0;
-  padding: 20px;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
