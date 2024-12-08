@@ -263,8 +263,8 @@ MD
     content: post_content,
     status: Post.statuses.keys.sample,
     user: admin,
-    categories: categories.sample(rand(1..(categories.length - 1))),
-    tags: tags.sample(rand(1..(tags.length - 1)))
+    categories: categories.sample(rand(3..(categories.length - 1))),
+    tags: tags.sample(rand(10..(tags.length - 1)))
   )
 
   # Associate random categories and tags
