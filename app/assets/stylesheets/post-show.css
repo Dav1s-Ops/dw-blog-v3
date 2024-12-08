@@ -106,22 +106,22 @@
 
 /* Specific category colors */
 .category-tag[data-category="frontend"] {
-  background: #30C2F6;
+  background: var(--Electro-Blue);
 }
 .category-tag[data-category="backend"] {
-  background: #F0AA05;
+  background: var(--Electro-Yellow);
 }
 .category-tag[data-category="devops"] {
-  background: #F21F51;
+  background: var(--Electro-Red);
 }
 .category-tag[data-category="news"] {
-  background: #6027FF;
+  background: var(--Electro-Purple);
 }
 .category-tag[data-category="fullstack"] {
-  background: #0DAE5E;
+  background: var(--Electro-Forest-Green);
 }
 .category-tag[data-category="personal"] {
-  background: #C225E0;
+  background: var(--Electro-Orange);
 }
 
 /* Hover effect */
