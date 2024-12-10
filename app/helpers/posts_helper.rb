@@ -23,12 +23,12 @@ module PostsHelper
   def first_paragraph_of_markdown(content, length: 200)
     html = markdown(content)
     doc = Nokogiri::HTML::DocumentFragment.parse(html)
-    first_p = doc.at('p')
+    first_p = doc.at("p")
     if first_p
       truncated_text = truncate(first_p.text, length: length)
       "<p>#{truncated_text}</p>".html_safe
     else
-      ''
+      ""
     end
   end
 end
