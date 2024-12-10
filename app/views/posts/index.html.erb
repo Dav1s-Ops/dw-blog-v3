@@ -1,21 +1,34 @@
 <section class="posts-container">
-  <figure class="categories-bar-container">
-    <div class="title-container">
-      <div class="unbounded-table-header">Categories</div>
-      <%= image_tag "question-filled.svg", class: "question-filled", alt: "text" %>
-    </div>
-    <div class="category-selectors">
-      <%= render_category_links(@category) %>
-    </div>
-  </figure>
-  <%= posts_header(@category) %>
+  <div class="category-bar-flex">
+    <%= posts_header(@category) %>
+    <figure class="categories-bar-container">
+      <div class="category-selectors">
+        <%= render_category_links(@category) %>
+      </div>
+    </figure>
+  </div>
   <% if @posts.present? %>
     <% @posts.each do |post| %>
       <div class="post">
-        <p class="unbounded-date-text" style=""><%= post.created_at %></p>
-        <h2 class="unbounded-title-text"><%= link_to post.title, post_path(post) %></h2>
-        <p><%= truncate(post.content, length: 100) %></p>
-        <%= link_to 'Read More', post_path(post) %>
+        <p class="date-text"><%= post.created_at.strftime("%b %d, %Y") %></p>
+        <h2 class="title-text">
+          <%= truncate(post.title, length: 50) %>
+        </h2>
+        <div class="post-content-index">
+          <%= first_paragraph_of_markdown(post.content) %>
+        </div>
+        <%= link_to 'Read more', post_path(post) %>
+      </div>
+    <% end %>
+    <%# If there are more posts to load, show Load More %>
+    <%# Implement your own pagination logic. If you have more posts, show this: %>
+    <% if @more_posts_to_load %>
+      <div class="load-more-container">
+        <!-- You could link to next page, or use AJAX here -->
+        <%= link_to "#", class: "load-more", id: "load-more-button" do %>
+          <div class="load-more-text">Load More</div>
+          <div class="load-more-icon"></div>
+        <% end %>
       </div>
     <% end %>
   <% else %>
