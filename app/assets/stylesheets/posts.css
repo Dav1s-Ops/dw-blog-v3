@@ -5,44 +5,64 @@
   justify-content: center;
   gap: 32px;
   width: 100%;
-  max-width: 1000px;
+  max-width: 825px;
   margin: 0 auto;
   padding-bottom: 1rem;
 }
 
+
 /* Categories Bar */
+.category-bar-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+}
+
 .categories-bar-container {
   display: flex;
   width: 100%;
   max-width: 825px;
-  min-height: 86px;
   flex-direction: column;
   align-items: flex-start;
   border-radius: 12px;
+  background: 
+    url('300-75-4-monochrome.png'),
+    radial-gradient(50% 50% at 50% 50%, #000 0%, #121212 100%);
+  background-blend-mode: color-dodge;
   border: 1px solid var(--Gray, #363636);
   overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.category-title-text {
+  font-size: 34px;
+  font-family: Unbounded;
+  font-weight: 600;
+  letter-spacing: 0.3px;
   margin: 0;
 }
 
 .categories-bar-container > .title-container {
   display: flex;
   width: 100%;
-  min-height: 38px;
+  height: 38px;
   padding: 10px;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
   gap: 6px;
-  background: var(--Login-Gradient);
 }
 
 .title-container > .title-text {
   color: var(--White);
   font-family: Unbounded;
-  font-size: 14px;
+  font-size: 12px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   line-height: normal;
+  letter-spacing: 0.3px;
 }
 
 .title-container > .question-filled {
@@ -63,7 +83,7 @@
 
 .category {
   display: flex;
-  height: 50px;
+  height: 38px;
   min-width: 96px;
   flex: 1;
   justify-content: center;
@@ -77,10 +97,10 @@
 .category-text {
   color: var(--White, #FFF);
   text-align: center;
-  font-family: B612 Mono;
+  font-family: Unbounded;
   font-size: 12px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   line-height: normal;
 }
 
@@ -118,4 +138,136 @@
 
 .post-by-cat {
   margin: 0;
+}
+
+/* Post Cards */
+.post {
+  align-self: stretch;
+  min-height: 200px;
+  padding: 20px;
+  background: 
+    url('300-75-4-monochrome.png'),
+    radial-gradient(50% 50% at 50% 50%, #000 0%, #121212 100%);
+  background-blend-mode: hard-light;
+  border-radius: 12px;
+  border: 1px solid #363636;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+}
+
+.post-content-index {
+  display: flex;
+  padding: 0.8rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.post-content-index p {
+  color: whitesmoke;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.8px;
+  text-align: left;
+  margin: 0;
+}
+
+/* Date inside the post */
+.post .date-text {
+  text-align: center;
+  color: #0DAE5E;
+  font-size: 12px;
+  font-family: Unbounded, sans-serif;
+  font-weight: 300;
+  width: 100%;
+}
+
+/* Title inside the post */
+.post .title-text {
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-family: Unbounded, sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+  width: 100%;
+  margin: 0;
+}
+
+/* Read More link wrapper */
+.post a,
+.post a:visited {
+  color: #0DAE5E;
+  text-decoration: none;
+}
+
+.post a:hover {
+  text-decoration: underline;
+}
+
+/* "Read More" button styling to mimic the snippet */
+.post a {
+  display: inline-flex;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #363636;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  background: transparent;
+  margin-top: 10px;
+}
+
+/* Load More Button */
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.load-more {
+  padding: 10px 20px;
+  background: #0DAE5E;
+  box-shadow: 0px 0px 100px #0DAE5E;
+  border-radius: 6px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.load-more:hover {
+  box-shadow: 0px 0px 120px #0DAE5E;
+}
+
+.load-more-text {
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+/* Optional load-more-icon styling if you add an icon */
+.load-more-icon {
+  width: 14px;
+  height: 14px;
+  background: white;
+  transform: rotate(90deg);
 }
