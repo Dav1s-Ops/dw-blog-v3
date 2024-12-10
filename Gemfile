@@ -68,4 +68,3 @@ gem "rouge", "~> 4.4"
 gem "pagy", "~> 9.3"
 gem "inline_svg", "~> 1.10"
 gem "nokogiri", "~> 1.16"
-
