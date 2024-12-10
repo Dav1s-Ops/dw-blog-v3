@@ -13,10 +13,22 @@ module PostsHelper
 
   def posts_header(current_category)
     title = current_category ? "#{current_category.name} Posts" : "All Posts"
-    content_tag(:h2, title, class: "unbounded-title-text")
+    content_tag(:h2, title, class: "category-title-text")
   end
 
   def formatted_post_date(post)
     post.created_at.strftime("%b") + " " + post.created_at.day.ordinalize + ", " + post.created_at.strftime("%Y")
+  end
+
+  def first_paragraph_of_markdown(content, length: 200)
+    html = markdown(content)
+    doc = Nokogiri::HTML::DocumentFragment.parse(html)
+    first_p = doc.at('p')
+    if first_p
+      truncated_text = truncate(first_p.text, length: length)
+      "<p>#{truncated_text}</p>".html_safe
+    else
+      ''
+    end
   end
 end
