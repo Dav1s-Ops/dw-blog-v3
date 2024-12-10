@@ -9,6 +9,11 @@
 
 .navbar-logo img {
   height: 80px;
+  transition: transform 0.4s ease;
+}
+
+.navbar-logo img:hover{
+  transform: translateY(2px);
 }
 
 .dropdown-container {
