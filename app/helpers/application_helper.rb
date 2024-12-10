@@ -7,7 +7,7 @@ module ApplicationHelper
       formatter = Rouge::Formatters::HTMLLegacy.new(css_class: "highlight")
       highlighted_code = formatter.format(lexer.lex(code))
 
-      icon_path = ActionController::Base.helpers.asset_path('copy-icon.svg')
+      icon_path = ActionController::Base.helpers.asset_path("copy-icon.svg")
 
       <<~HTML.html_safe
         <div class="code-block-wrapper" data-controller="copy" data-copy-code-value="#{ERB::Util.html_escape(code)}">
