@@ -35,7 +35,9 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  width: 100%;
   margin: 0;
+  word-wrap: break-word;
 }
 
 .post-date {
@@ -149,10 +151,11 @@
 .post-content td  {
   color: whitesmoke;
   font-family: 'Open Sans', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 300;
   line-height: 1.8;
-  letter-spacing: 0.8px;
+  /* letter-spacing: 0.8px; */
+  margin: 0 0 10px 0;
 }
 
 .post-content h1 {

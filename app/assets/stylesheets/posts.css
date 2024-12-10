@@ -195,6 +195,7 @@
 /* Title inside the post */
 .post .title-text {
   text-align: center;
+  border: none;
   color: white;
   font-size: 24px;
   font-family: Unbounded, sans-serif;
@@ -202,21 +203,33 @@
   word-wrap: break-word;
   width: 100%;
   margin: 0;
-}
-
-/* Read More link wrapper */
-.post a,
-.post a:visited {
-  color: #0DAE5E;
+  cursor: pointer;
   text-decoration: none;
 }
 
-.post a:hover {
+.post .title-text:hover {
   text-decoration: underline;
 }
 
+/* Read More link wrapper */
+.post .read-more,
+.post .read-more:visited {
+  color: #0DAE5E;
+  text-decoration: none;
+  transition: background 0.3s ease, border 0.3s ease-out;
+}
+
+.post .read-more:hover {
+  text-decoration: underline;
+  border: 1px solid var(--Electro-Forest-Green, #0DAE5E); 
+  background: rgba(13, 174, 94, 0.8);
+  outline: 2px solid rgba(13, 174, 94, 0.5); 
+  outline-offset: 2px;
+  color: white;
+}
+
 /* "Read More" button styling to mimic the snippet */
-.post a {
+.post .read-more {
   display: inline-flex;
   padding: 6px 12px;
   border-radius: 20px;

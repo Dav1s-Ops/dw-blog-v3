@@ -11,24 +11,11 @@
     <% @posts.each do |post| %>
       <div class="post">
         <p class="date-text"><%= post.created_at.strftime("%b %d, %Y") %></p>
-        <h2 class="title-text">
-          <%= truncate(post.title, length: 50) %>
-        </h2>
+        <%= link_to truncate(post.title, length: 50), post_path(post), class: "title-text" %>
         <div class="post-content-index">
           <%= first_paragraph_of_markdown(post.content) %>
         </div>
-        <%= link_to 'Read more', post_path(post) %>
-      </div>
-    <% end %>
-    <%# If there are more posts to load, show Load More %>
-    <%# Implement your own pagination logic. If you have more posts, show this: %>
-    <% if @more_posts_to_load %>
-      <div class="load-more-container">
-        <!-- You could link to next page, or use AJAX here -->
-        <%= link_to "#", class: "load-more", id: "load-more-button" do %>
-          <div class="load-more-text">Load More</div>
-          <div class="load-more-icon"></div>
-        <% end %>
+        <%= link_to 'Read more', post_path(post), class: "read-more" %>
       </div>
     <% end %>
   <% else %>
