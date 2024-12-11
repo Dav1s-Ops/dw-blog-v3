@@ -1,4 +1,4 @@
-<section class="posts-container">
+<section class="posts-container" id="posts-container">
   <div class="category-bar-flex">
     <%= posts_header(@category) %>
     <figure class="categories-bar-container">
@@ -7,15 +7,21 @@
       </div>
     </figure>
   </div>
-  <% if @posts.present? %>
-    <% @posts.each do |post| %>
-      <div class="post">
-        <p class="date-text"><%= post.created_at.strftime("%b %d, %Y") %></p>
-        <%= link_to truncate(post.title, length: 50), post_path(post), class: "title-text" %>
-        <div class="post-content-index">
-          <%= first_paragraph_of_markdown(post.content) %>
-        </div>
-        <%= link_to 'Read more', post_path(post), class: "read-more" %>
+  
+  <% if @posts.any? %>
+    <%= render @posts %>
+
+    <% if @pagy.next %>
+      <div class="load-more-container">
+        <button 
+          class="load-more"
+          data-controller="load-more"
+          data-action="click->load-more#loadMore"
+          data-load-more-url-value="<%= posts_path(category: @category, page: @pagy.next, format: :json) %>"
+        >
+          <span class="load-more-text">Load more</span>
+          <%= image_tag "next-arrow-circle.svg", alt: "Load More Arrow", class: "load-more-icon" %>
+        </button>
       </div>
     <% end %>
   <% else %>

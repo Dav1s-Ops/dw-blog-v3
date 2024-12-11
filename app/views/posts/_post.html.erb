@@ -1,0 +1,8 @@
+<div class="post">
+  <p class="date-text"><%= post.created_at.strftime("%b %d, %Y") %></p>
+  <%= link_to truncate(post.title, length: 50), post_path(post), class: "title-text" %>
+  <div class="post-content-index">
+    <%= first_paragraph_of_markdown(post.content) %>
+  </div>
+  <%= link_to 'Read more', post_path(post), class: "read-more" %>
+</div>
