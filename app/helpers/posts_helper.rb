@@ -20,7 +20,7 @@ module PostsHelper
     post.created_at.strftime("%b") + " " + post.created_at.day.ordinalize + ", " + post.created_at.strftime("%Y")
   end
 
-  def first_paragraph_of_markdown(content, length: 200)
+  def first_paragraph_of_markdown(content, length: 230)
     html = markdown(content)
     doc = Nokogiri::HTML::DocumentFragment.parse(html)
     first_p = doc.at("p")
