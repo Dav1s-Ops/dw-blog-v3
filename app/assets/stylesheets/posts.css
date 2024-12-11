@@ -174,10 +174,9 @@
 .post-content-index p {
   color: whitesmoke;
   font-family: 'Open Sans', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 300;
   line-height: 1.8;
-  letter-spacing: 0.8px;
   text-align: left;
   margin: 0;
 }
@@ -238,7 +237,7 @@
   align-items: center;
   gap: 10px;
   font-size: 12px;
-  font-family: Lato, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   background: transparent;
   margin-top: 10px;
@@ -254,7 +253,7 @@
 .load-more {
   padding: 10px 20px;
   background: #0DAE5E;
-  box-shadow: 0px 0px 100px #0DAE5E;
+  border: 1px solid #363636;
   border-radius: 6px;
   display: inline-flex;
   justify-content: center;
@@ -262,10 +261,15 @@
   gap: 6px;
   cursor: pointer;
   text-decoration: none;
+  transition: box-shadow 0.4s ease, background 0.3s ease, outline 0.3s ease;
 }
 
 .load-more:hover {
-  box-shadow: 0px 0px 120px #0DAE5E;
+  border: 1px solid var(--Electro-Forest-Green, #0DAE5E); 
+  background: rgba(13, 174, 94, 0.8);
+  outline: 2px solid rgba(13, 174, 94, 0.5); 
+  outline-offset: 2px;
+  box-shadow: 0px 0px 60px #0DAE5E;
 }
 
 .load-more-text {
@@ -281,6 +285,4 @@
 .load-more-icon {
   width: 14px;
   height: 14px;
-  background: white;
-  transform: rotate(90deg);
 }
