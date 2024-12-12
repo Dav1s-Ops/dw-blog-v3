@@ -52,7 +52,9 @@
   margin: 0 0 16px 0;
 }
 
-.welcome-icon {
+.welcome-icon-website,
+.welcome-icon-github,
+.welcome-icon-linkedin {
   width: 20px;
   height: 20px;
   cursor: pointer;
@@ -60,10 +62,22 @@
   transition: transform 0.5s ease, color 0.4s ease, filter 0.5s ease;
 }
 
-.welcome-icon:hover {
+.welcome-icon-website:hover {
   transform: translateY(-2px);
   color: var(--Electro-Forest-Green);
   filter: drop-shadow(var(--Electro-Forest-Green) 1px 1px 10px)
+}
+
+.welcome-icon-github:hover {
+  transform: translateY(-2px);
+  color: var(--Electro-Yellow);
+  filter: drop-shadow(var(--Electro-Yellow) 1px 1px 10px)
+}
+
+.welcome-icon-linkedin:hover {
+  transform: translateY(-2px);
+  color: var(--Electro-Blue);
+  filter: drop-shadow(var(--Electro-Blue) 1px 1px 10px)
 }
 
 .posts-container {
