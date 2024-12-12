@@ -1,16 +1,29 @@
+<section class="welcome-section">
+  <%= image_tag "it-me.png", alt: "It's Davis!", class: "welcome-img" %>
+  <div class="welcome-content-container">
+    <h1 class="welcome-title">Welcome!</h1>
+    <p class="welcome-text">My name is Davis and I'm a SWE with a SRE focus. This is my blog where I share my thoughts, projects, and tutorials. Feel free to explore the categories and dive into the posts below. Enjoy your stay!</p>
+    <div class="welcome-links">
+      <%= image_tag "website-icon.svg", alt: "Website Link", class: "welcome-icon" %>
+      <%= image_tag "github-icon.svg", alt: "Github Link", class: "welcome-icon" %>
+      <%= image_tag "linkedin-icon.svg", alt: "LinkedIn Link", class: "welcome-icon" %>
+    </div>
+  </div>
+</section>
 <section class="posts-container" id="posts-container">
-  <div class="category-bar-flex">
+  <section class="category-bar-flex" data-controller="categories-bar">
     <%= posts_header(@category) %>
-    <figure class="categories-bar-container">
+    <figure 
+      class="categories-bar-container"
+      data-categories-bar-target="categoriesBar"
+    >
       <div class="category-selectors">
         <%= render_category_links(@category) %>
       </div>
     </figure>
-  </div>
-  
+  </section>
   <% if @posts.any? %>
     <%= render @posts %>
-
     <% if @pagy.next %>
       <div class="load-more-container">
         <button 
@@ -18,7 +31,7 @@
           data-controller="load-more"
           data-action="click->load-more#loadMore"
           data-load-more-url-value="<%= posts_path(category: @category, page: @pagy.next, format: :json) %>"
-        >
+          >
           <span class="load-more-text">Load more</span>
           <%= image_tag "next-arrow-circle.svg", alt: "Load More Arrow", class: "load-more-icon" %>
         </button>

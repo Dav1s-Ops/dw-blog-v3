@@ -5,7 +5,7 @@ module PostsHelper
       category_class = "category #{category.name.downcase}"
       category_class += " active" if is_active
       link_path = is_active ? posts_path : category_posts_path(category: category.slug)
-      link_to(link_path, class: category_class) do
+      link_to(link_path, class: category_class, data: { categories_bar_target: "category" }) do
         content_tag(:div, category.name, class: "category-text")
       end
     end.join.html_safe
