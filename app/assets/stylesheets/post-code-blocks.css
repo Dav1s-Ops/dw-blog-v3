@@ -39,7 +39,6 @@
   white-space: pre;
   word-wrap: normal;
   overflow-x: auto;
-  -ms-overflow-style: none;
   scrollbar-width: none; 
 }
 
@@ -47,6 +46,18 @@
   display: block;
   padding: 20px;
   box-sizing: border-box;
+}
+
+.code-block-language {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--Light-Gray);
+  font-size: 0.7rem;
+  font-family: B612 Mono;
+  margin-right: auto;
+  padding: 0 8px;
+  
 }
 
 .copy-button {
