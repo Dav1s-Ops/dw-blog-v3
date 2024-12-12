@@ -4,9 +4,15 @@
     <h1 class="welcome-title">Welcome!</h1>
     <p class="welcome-text">My name is Davis and I'm a SWE with a SRE focus. This is my blog where I share my thoughts, projects, and tutorials. Feel free to explore the categories and dive into the posts below. Enjoy your stay!</p>
     <div class="welcome-links">
-      <%= image_tag "website-icon.svg", alt: "Website Link", class: "welcome-icon" %>
-      <%= image_tag "github-icon.svg", alt: "Github Link", class: "welcome-icon" %>
-      <%= image_tag "linkedin-icon.svg", alt: "LinkedIn Link", class: "welcome-icon" %>
+      <a href="https://www.dw-portfolio.com/" target="_blank" rel="noopener noreferrer" title="Visit My Website">
+        <%= inline_svg_tag "website-icon.svg", class: "welcome-icon" %>
+      </a>
+      <a href="https://github.com/Dav1s-Ops" target="_blank" rel="noopener noreferrer" title="Visit My GitHub">
+        <%= inline_svg_tag "github-icon.svg", class: "welcome-icon" %>
+      </a>
+      <a href="https://www.linkedin.com/in/davis-weimer" target="_blank" rel="noopener noreferrer" title="Visit My LinkedIn">
+        <%= inline_svg_tag "linkedin-icon.svg", class: "welcome-icon" %>
+      </a>
     </div>
   </div>
 </section>
