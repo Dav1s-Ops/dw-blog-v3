@@ -1,10 +1,24 @@
 class PostsController < ApplicationController
   def index
-    if params[:category]
-      @category = Category.friendly.find(params[:category])
-      @posts = @category.posts.published
+    @category = Category.friendly.find(params[:category]) if params[:category]
+    scope = if @category
+      @category.posts.published.order(created_at: :desc)
     else
-      @posts = Post.published
+      Post.published.order(created_at: :desc)
+    end
+
+    @pagy, @posts = pagy(scope, items: 10)
+    Rails.logger.info "Number of posts loaded: #{@posts.size}"
+
+    respond_to do |format|
+      format.html
+      format.json do
+        rendered_posts = render_to_string(partial: "posts/post", collection: @posts, formats: [ :html ])
+        render json: {
+          html: rendered_posts,
+          has_more: @pagy.next.present?
+        }
+      end
     end
   end
 

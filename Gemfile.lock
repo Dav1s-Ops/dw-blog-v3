@@ -361,6 +361,7 @@ DEPENDENCIES
   inline_svg (~> 1.10)
   jbuilder
   launchy (~> 3.0)
+  nokogiri (~> 1.16)
   orderly (~> 0.1.1)
   pagy (~> 9.3)
   pg (~> 1.1)

@@ -1,0 +1,86 @@
+/* `Code` highlighting */
+.post-content p code {
+  background: rgba(50, 50, 50, 0.8);
+  color: var(--Electro-Yellow);
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-family: B612 Mono;
+}
+
+/* Code block wrapper and copy button */
+.code-block-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--Gray, #363636);
+  border-radius: 6px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.code-block-header {
+  display: flex;
+  justify-content: flex-end;
+  background: #333;
+  padding: 5px;
+}
+
+.post-content .highlight {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0;
+  border-radius: 0;
+}
+
+.code-block-wrapper .highlight pre {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-x: auto;
+  scrollbar-width: none; 
+}
+
+.code-block-wrapper .highlight pre code {
+  display: block;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.code-block-language {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--Light-Gray);
+  font-size: 0.7rem;
+  font-family: B612 Mono;
+  margin-right: auto;
+  padding: 0 8px;
+  
+}
+
+.copy-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  background: var(--Electro-Forest-Green);
+  color: white;
+  font-size: 0.8rem;
+  font-family: B612 Mono;
+  border: none;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  border-radius: 3px;
+  cursor: pointer;
+  /* margin-right: 5px; */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.copy-button:hover {
+  background: var(--Electro-Yellow);
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.06);
+
+}

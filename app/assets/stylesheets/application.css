@@ -20,9 +20,11 @@
  *= require pagy
  *= require login
  *= require not-found
+ *= require post-show
  */
 :root {
   --Gray: #363636;
+  --Light-Gray: #CECDCC;
   --White: #FFFFFF;
   --Electro-Red: #F42053;
   --Electro-Blue: #30C2F6;
@@ -30,11 +32,13 @@
   --Electro-Pink: #C225E0;
   --Electro-Yellow: #F0AA05;
   --Electro-Purple: #6027FF;
+  --Electro-Orange: #F68C30;
   --Login-Gradient: radial-gradient(50% 50% at 50% 50%, #000 0%, #121212 100%);
   --Electro-Red-Gradient: linear-gradient(0deg, rgba(244, 32, 83, 0.5) 0%, rgba(244, 32, 83) 100%);
   --Gray-Gradient: linear-gradient(0deg, rgba(123, 123, 123, 0.5) 0%, rgb(147, 147, 147) 100%);
   --Green-Glow: rgba(13, 174, 94, 1);
   --Box-Shadow-Green-Glow: 0px 10px 100px -40px var(--Green-Glow);
+  --Black-Gradient-Reverse: linear-gradient(0deg, #000 0%, #121212 100%);
 
   --Electro-Red-RGB: 244, 32, 83;      /* #F42053 */
   --Electro-Blue-RGB: 48, 194, 246;    /* #30C2F6 */
@@ -77,21 +81,6 @@ body::before {
   z-index: -1;
 }
 
-.highlight {
-  border-radius: 6px;
-  width: 100%;
-}
-
-.highlight pre {
-  white-space: pre-wrap;
-  word-break: break-word;
-  margin: 0;
-  padding: 20px;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -107,33 +96,4 @@ body::before {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
-}
-
-
-/* FONTS FONTS FONTS! */
-
-.unbounded-title-text {
-  font-size: 20px;
-  font-family: Unbounded;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-}
-
-.unbounded-date-text {
-  font-size: 12px;
-  font-family: Unbounded;
-  font-weight: 300;
-}
-
-.unbounded-table-header {
-  font-size: 14px;
-  font-family: Unbounded;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-}
-
-.unbounded-cat-text {
-  font-size: 12px;
-  font-family: Unbounded;
-  font-weight: 400;
 }
