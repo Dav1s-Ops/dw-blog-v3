@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "PostRendering", type: :feature do
   let(:user) { User.create(email: "test@test.com", password: "password") }
   let(:category) { Category.create(name: 'Backend') }
-  let(:tags) { [Tag.create(name: 'Ruby'), Tag.create(name: 'Markdown')] }
+  let(:tags) { [ Tag.create(name: 'Ruby'), Tag.create(name: 'Markdown') ] }
 
   before do
     content = <<~MD
