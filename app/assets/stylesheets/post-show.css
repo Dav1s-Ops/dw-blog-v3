@@ -28,7 +28,7 @@
 }
 
 .post-title {
-  color: #FFF;
+  color: white;
   text-align: center;
   font-family: Unbounded;
   font-size: 36px;
@@ -83,7 +83,6 @@
   color: white;
 }
 
-
 .categories {
   display: flex;
   flex-wrap: wrap;
@@ -126,7 +125,6 @@
   background: var(--Electro-Orange);
 }
 
-/* Hover effect */
 .category-tag:hover {
   transform: translateY(-3px); 
   filter: brightness(1.1);
@@ -154,7 +152,6 @@
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.8;
-  /* letter-spacing: 0.8px; */
   margin: 0 0 10px 0;
 }
 
@@ -170,7 +167,7 @@
 
 .post-content h3 {
   font-size: 1.5rem;
-  color: var(--Electro-Red);
+  color: var(--Electro-Forest-Green);
 }
 
 .post-content h4 {
@@ -220,7 +217,7 @@
 .post-content a {
   color: var(--Electro-Blue);
   text-decoration: none;
-  transition: color 0.4s ease, text-decoration 0.4s ease-out
+  transition: color 0.4s ease, text-decoration 0.4s ease-out;
 }
 
 .post-content a:hover {
@@ -237,51 +234,54 @@
 }
 
 /* Table Styling */
-.post-content table {
+.table-container {
   width: 100%;
-  max-width: 1000px;
-  border-collapse: separate;
-  border-spacing: 0;
+  overflow-x: auto;
+  margin: 20px 0;
   border-radius: 6px;
   border: 1px solid var(--Gray, #363636);
-  background: linear-gradient(360deg, rgb(24, 24, 24) 0%, #121212 25%);
-  overflow: hidden;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.06);
-  margin: 20px 0;
+  scrollbar-width: none;
+  overflow-y: hidden;
 }
 
-/* Table Header */
-.post-content thead th {
-  background: rgba(255, 255, 255, 0.1);
-  color: #FFF;
+.table-container table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--Black-Gradient-Reverse);
+  margin: 0;
+}
+
+.table-container thead tr:first-child td {
+  color: white;
   font-size: 16px;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.5px;
   text-align: left;
   padding: 10px 12px;
-  border-left: 1px solid var(--Gray, #363636);
-}
-
-.post-content thead th:first-child {
+  border-bottom: 1px solid #363636;
+  background: var(--Login-Gradient);
   border-left: none;
 }
 
-.post-content tbody tr:nth-child(odd) {
+.table-container tbody tr:nth-child(even) {
   background-color: transparent;
+  transition: background-color 0.4s ease;
 }
 
-.post-content tbody tr:nth-child(even) {
+.table-container tbody tr:nth-child(odd) {
   background-color: rgba(255, 255, 255, 0.05);
+  transition: background-color 0.4s ease;
 }
 
-/* Hover State */
-.post-content tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.25);
+.table-container tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Table Cells */
-.post-content td {
+.table-container tbody td {
+  text-wrap: balance;
   color: whitesmoke;
   font-family: 'Open Sans', sans-serif;
   font-size: 0.8rem;
@@ -290,17 +290,15 @@
   letter-spacing: 0.8px;
   padding: 10px 12px;
   border-left: 1px solid #363636;
-  border-top: 1px solid #363636;
   transition: color 0.3s ease, background-color 0.2s ease;
 }
 
-.post-content tbody tr:hover td {
-  color: rgba(255, 255, 255, 0.9);
+.table-container tbody td:nth-child(1) {
+  border-left: none;
 }
 
-/* Optional column width adjustments */
-.post-content td:nth-child(1) {
-  border-left: none;
+.table-container tbody tr:hover td {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 @media (max-width: 800px) {
