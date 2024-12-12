@@ -16,10 +16,12 @@ module ApplicationHelper
       highlighted_code = formatter.format(lexer.lex(code))
 
       icon_path = ActionController::Base.helpers.asset_path("copy-icon.svg")
+      language_label = language ? language : ""
 
       <<~HTML.html_safe
         <div class="code-block-wrapper" data-controller="copy" data-copy-code-value="#{ERB::Util.html_escape(code)}">
           <div class="code-block-header">
+            <span class="code-block-language">#{ERB::Util.html_escape(language_label)}</span>
             <button class="copy-button" data-action="click->copy#copy">
               <img src="#{icon_path}" alt="Copy" />
               Copy
@@ -28,6 +30,29 @@ module ApplicationHelper
           #{highlighted_code}
         </div>
       HTML
+    end
+
+    def table(header, body)
+      <<~HTML
+        <div class="table-container">
+          <table>
+            <thead>#{header}</thead>
+            <tbody>#{body}</tbody>
+          </table>
+        </div>
+      HTML
+    end
+
+    def table_row(content)
+      "<tr>#{content}</tr>"
+    end
+
+    def table_cell(content, alignment)
+      if alignment
+        "<td style=\"text-align: #{alignment};\">#{content}</td>"
+      else
+        "<td>#{content}</td>"
+      end
     end
   end
 
