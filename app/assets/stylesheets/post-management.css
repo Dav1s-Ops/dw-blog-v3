@@ -148,6 +148,13 @@
   gap: 1rem;
 }
 
+.admin-posts__no-posts {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--Light-Gray);
+}
+
 .admin-posts__action-link-Edit {
   display: flex;
   align-items: center;
