@@ -21,6 +21,7 @@ module PostsHelper
   end
 
   def first_paragraph_of_markdown(content, length: 230)
+    return "" if content.nil? || content.strip.empty?
     html = markdown(content)
     doc = Nokogiri::HTML::DocumentFragment.parse(html)
     first_p = doc.at("p")
