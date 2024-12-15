@@ -1,29 +1,33 @@
-<h1>Admin Dashboard</h1>
-
-<div class="stats">
-  <div class="stat-card">
-    <h2>Total Posts</h2>
-    <p><%= @total_posts %></p>
+<div class="dashboard-container">
+  <div class="dashboard-welcome-section">
+    <div class="dashboard-welcome-title">Welcome Back!</div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-title stat-green">Total Posts</div>
+        <div class="stat-value"><%= @total_posts %></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title stat-red">Draft Posts</div>
+        <div class="stat-value"><%= @draft_posts %></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title stat-blue">Total Categories</div>
+        <div class="stat-value"><%= @total_categories %></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title stat-yellow">Total Tags</div>
+        <div class="stat-value"><%= @total_tags %></div>
+      </div>
+    </div>
   </div>
-  <div class="stat-card">
-    <h2>Total Categories</h2>
-    <p><%= @total_categories %></p>
-  </div>
-  <div class="stat-card">
-    <h2>Total Tags</h2>
-    <p><%= @total_tags %></p>
-  </div>
-  <div class="stat-card">
-    <h2>Draft Posts</h2>
-    <p><%= @draft_posts %></p>
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="charts-title">Posts by Category</div>
+      <%= pie_chart @posts_by_category, donut: true, id: "chart-posts-by-category" %>
+    </div>
+    <div class="chart-card">
+      <div class="charts-title">Top 5 Tags</div>
+      <%= bar_chart @top_tags, id: "chart-top-5-tags" %>
+    </div>
   </div>
 </div>
-
-<div>
-  <h2>Posts by Category</h2>
-  <%= pie_chart @posts_by_category, donut: true, id: "chart-posts-by-category" %>
-
-  <h2>Top 5 Tags by Number of Posts</h2>
-  <%= bar_chart @top_tags, id: "chart-top-5-tags" %>
-</div>
-
