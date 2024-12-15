@@ -15,34 +15,44 @@
       </tr>
     </thead>
     <tbody>
-      <% @posts.each do |post| %>
+      <% if @posts.any? %>
+        <% @posts.each do |post| %>
+          <tr>
+            <td class="admin-posts__table-cell"><%= post.id %></td>
+            <td class="admin-posts__table-cell">
+              <%= link_to admin_post_path(post), class: "admin-posts__title-link" do %>
+                <%= post.title.truncate_words(10) %>
+              <% end %>
+            </td>
+            <td class="admin-posts__table-cell"><%= post.slug.truncate(22) %></td>
+            <td class="admin-posts__table-cell"><%= post.status.capitalize %></td>
+            <td class="admin-posts__table-cell">
+              <div class="admin-posts__table-cell-buttons">
+                <%= link_to edit_admin_post_path(post), class: "admin-posts__action-link-Edit" do %>
+                  <%= inline_svg 'edit-icon.svg', class: 'admin-posts__icon' %>
+                  Edit
+                <% end %>
+                <%= button_tag type: 'button', data: { action: 'click->dialog#open', delete_url: admin_post_path(post), post_title: post.title }, class: "admin-posts__action-link-Delete" do %>
+                  <%= inline_svg 'trash-icon.svg', class: 'admin-posts__icon' %>
+                  <span class="admin-posts__action-text">Delete</span>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
         <tr>
-          <td class="admin-posts__table-cell"><%= post.id %></td>
-          <td class="admin-posts__table-cell">
-            <%= link_to admin_post_path(post), class: "admin-posts__title-link" do %>
-              <%= post.title.truncate_words(10) %>
-            <% end %>
-          </td>
-          <td class="admin-posts__table-cell"><%= post.slug.truncate(22) %></td>
-          <td class="admin-posts__table-cell"><%= post.status.capitalize %></td>
-          <td class="admin-posts__table-cell">
-            <div class="admin-posts__table-cell-buttons">
-              <%= link_to edit_admin_post_path(post), class: "admin-posts__action-link-Edit" do %>
-                <%= inline_svg 'edit-icon.svg', class: 'admin-posts__icon' %>
-                Edit
-              <% end %>
-              <%= button_tag type: 'button', data: { action: 'click->dialog#open', delete_url: admin_post_path(post), post_title: post.title }, class: "admin-posts__action-link-Delete" do %>
-                <%= inline_svg 'trash-icon.svg', class: 'admin-posts__icon' %>
-                <span class="admin-posts__action-text">Delete</span>
-              <% end %>
-            </div>
+          <td class="admin-posts__table-cell" colspan="5" style="text-align: center; font-style: italic; color: var(--Light-Gray);">
+            There are no posts to display.
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
   <div class="admin-posts__pagination">
-    <%== pagy_nav(@pagy) %>
+    <% if @posts.any? %>
+      <%== pagy_nav(@pagy) %>
+    <% end %>
   </div>
   <%= render "dialog" %>
 </section>

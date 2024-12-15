@@ -45,11 +45,6 @@ file_path_3 = Rails.root.join('db/sample_posts/sample_post_js.md')
     tags: tags.sample(rand(10..(tags.length - 1)))
   )
 
-  # Associate random categories and tags
-  # post.categories << categories.sample(rand(0..4))
-  # post.tags << tags.sample(rand(0..5))
-
-  # Generate slug using FriendlyId
   post.save!
 
   puts "Created post: #{post.title}"

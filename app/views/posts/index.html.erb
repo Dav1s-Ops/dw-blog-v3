@@ -44,7 +44,14 @@
       </div>
     <% end %>
   <% else %>
-    <h2>Nothing here yet...</h2>
-    <p>I guess I better get to work. Try another category or check back soon!</p>
+    <div class="nothing-here-container">
+      <%= inline_svg_tag "missing-data-icon.svg", alt: "Nothing here..", class: "nothing-here-icon"  %>
+      <div class="text-container">
+        <div class="nothing-here-title">Nothing here yet..</div>
+        <div class="nothing-here-description">
+          I'm sure I'll to this topic soon, try another category and check back later!
+        </div>
+      </div>
+    </div>
   <% end %>
 </section>

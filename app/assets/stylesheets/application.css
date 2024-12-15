@@ -61,13 +61,14 @@ html, body {
 
 body {
   display: flex;
-  padding: 12px;
+  padding: 1rem 1rem 0 1rem;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   position: relative;
   overflow: auto;
   background: none;
+  min-height: 100vh;
 }
 
 body::before {
@@ -79,6 +80,16 @@ body::before {
   height: 100vh;
   background: var(--Black-Gradient, linear-gradient(180deg, #000 0%, #121212 100%));
   z-index: -1;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
