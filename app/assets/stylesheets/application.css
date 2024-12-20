@@ -92,6 +92,42 @@ main {
   box-sizing: border-box;
 }
 
+.app-flash-notification {
+  background: radial-gradient(50% 50% at 50% 50%, #1a1a1a 0%, #121212 100%);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--Electro-Forest-Green);
+  color: whitesmoke;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.8;
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.app-flash-notification p {
+  margin: 0;
+}
+
+.app-flash-notification.notice {
+  border: 1px solid var(--Electro-Forest-Green);
+}
+.app-flash-notification.alert {
+  border: 1px solid var(--Electro-Red);
+}
+
+.app-flash-notification.fade-out {
+  transform: translate(-50%, -100%);
+  opacity: 0;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
