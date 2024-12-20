@@ -39,7 +39,7 @@ class Admin::PostsController < ApplicationController
 
   def destroy
     if @post.destroy
-      redirect_to admin_posts_path, notice: "Post deleted."
+      redirect_to admin_posts_path, alert: "Post deleted."
     else
       redirect_to admin_posts_path, alert: "Unable to delete the post."
     end
