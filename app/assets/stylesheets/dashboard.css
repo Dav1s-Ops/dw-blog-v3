@@ -140,3 +140,9 @@
   word-wrap: break-word;
   color: var(--White);
 }
+
+@media (max-width: 800px) {
+  .chart-card {
+    padding: 1rem 0 1rem 0;
+  }
+}

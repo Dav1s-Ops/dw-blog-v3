@@ -20,9 +20,7 @@
   gap: 10px;
   border-radius: 12px;
   border: 1px solid var(--Gray, #363636);
-  background: 
-    url('300-75-4-monochrome.png'),
-    radial-gradient(50% 50% at 50% 50%, #1a1a1a 0%, #121212 100%);
+  background: radial-gradient(50% 50% at 50% 50%, #1a1a1a 0%, #121212 100%);
   background-blend-mode: color-dodge;
   box-sizing: border-box;
 }
