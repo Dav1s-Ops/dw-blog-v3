@@ -290,8 +290,13 @@
 
 @media (max-width: 600px) {
   .login-form-container {
+    padding: 1rem;
     background: none;
     box-shadow: none;
     border: none;  
+  }
+
+  .login-form-page {
+    margin: 0;
   }
 }
