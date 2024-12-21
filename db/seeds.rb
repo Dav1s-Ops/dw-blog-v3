@@ -41,8 +41,8 @@ file_path_3 = Rails.root.join('db/sample_posts/sample_post_js.md')
     content: File.read([ file_path_1, file_path_2, file_path_3 ].sample),
     status: Post.statuses.keys.sample,
     user: admin,
-    categories: categories.sample(rand(3..(categories.length - 1))),
-    tags: tags.sample(rand(10..(tags.length - 1)))
+    categories: categories.sample(rand(1..2)),
+    tags: tags.sample(rand(1..10))
   )
 
   post.save!
