@@ -38,10 +38,6 @@
       <%= form.select :status, options_for_select([["Draft", "draft"], ["Published", "published"]], @post.status), {}, class: "add-post-form__input" %>
     </div>
     <div class="add-post-form__buttons">
-      <%= form.submit "Preview (Under Construction)",
-        formaction: @post.new_record? ? preview_admin_posts_path : preview_admin_post_path(@post),
-        formmethod: :post,
-        class: "add-post-form__button add-post-form__button-preview" %>
       <% if @post.new_record? %>
         <%= form.submit "Save Post", class: "add-post-form__button add-post-form__button-save" %>
       <% else %>
