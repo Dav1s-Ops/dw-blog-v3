@@ -21,7 +21,7 @@ module PostsHelper
           "question-filled.svg",
           alt: "Tooltip icon",
           class: "tooltip-icon",
-          data: { 
+          data: {
             controller: "tooltip",
             action: "mouseover->tooltip#show mouseout->tooltip#hide",
             tooltip_text: "This section displays posts filtered by category or all posts if no category is selected."
