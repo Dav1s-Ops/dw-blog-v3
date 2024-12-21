@@ -92,6 +92,79 @@ main {
   box-sizing: border-box;
 }
 
+.app-flash-notification {
+  background: radial-gradient(50% 50% at 50% 50%, #1a1a1a 0%, #121212 100%);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--Electro-Forest-Green);
+  color: whitesmoke;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.8;
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.app-flash-notification p {
+  margin: 0;
+}
+
+.app-flash-notification.notice {
+  border: 1px solid var(--Electro-Forest-Green);
+}
+.app-flash-notification.alert {
+  border: 1px solid var(--Electro-Red);
+}
+
+.app-flash-notification.fade-out {
+  transform: translate(-50%, -100%);
+  opacity: 0;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.error-messages {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(50% 50% at 50% 50%, #1a1a1a 0%, #121212 100%);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--Electro-Red);
+  color: whitesmoke;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 90%;
+  width: 600px;
+  z-index: 100;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.error-messages h2 {
+  font-weight: bold;
+  margin: 0;
+}
+
+.error-messages ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.error-messages.fade-out {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

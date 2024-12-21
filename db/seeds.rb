@@ -17,7 +17,7 @@ admin = User.create!(
 puts "—————— User created: #{admin.email}"
 puts "Creating categories..."
 
-categories = [ 'Frontend', 'Backend', 'Fullstack', 'DevOps', 'News', 'Personal' ].map do |category_name|
+categories = [ 'Frontend', 'Backend', 'Fullstack', 'DevOps', 'Music', 'Personal' ].map do |category_name|
   Category.create!(name: category_name)
 end
 

@@ -16,7 +16,7 @@ RSpec.feature "PublishedPosts", type: :feature do
     visit posts_path
 
     expect(page).to have_css('h1.welcome-title', text: 'Welcome!')
-    expect(page).to have_css('p.welcome-text', text: 'My name is Davis and I\'m a SWE with a SRE focus.')
+    expect(page).to have_css('p.welcome-text', text: "I'm Davis, a SWE exploring the universe of software")
     expect(page).to have_link(nil, href: 'https://www.dw-portfolio.com/')
     expect(page).to have_link(nil, href: 'https://github.com/Dav1s-Ops')
     expect(page).to have_link(nil, href: 'https://www.linkedin.com/in/davis-weimer')

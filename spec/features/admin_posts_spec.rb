@@ -46,7 +46,6 @@ RSpec.feature "Admin Posts", type: :feature do
       end
 
       within '.add-post-form__buttons' do
-        expect(page).to have_button('Preview (Under Construction)')
         expect(page).to have_button('Save Post')
       end
     end

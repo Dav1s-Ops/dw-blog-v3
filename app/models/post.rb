@@ -28,7 +28,7 @@ class Post < ApplicationRecord
   private
 
   def process_tags
-    nil if @tag_list.blank?
+    return if @tag_list.blank?
 
     tag_names = CSV.parse_line(@tag_list, col_sep: ",").map(&:strip).reject(&:blank?)
     self.tags = tag_names.map { |name| Tag.find_or_create_by(name: name) }
