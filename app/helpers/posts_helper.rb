@@ -13,7 +13,22 @@ module PostsHelper
 
   def posts_header(current_category)
     title = current_category ? "#{current_category.name} Posts" : "All Posts"
-    content_tag(:h2, title, class: "category-title-text")
+    content_tag(:h2, class: "category-title-text") do
+      concat title
+      concat " "
+      concat(
+        image_tag(
+          "question-filled.svg",
+          alt: "Tooltip icon",
+          class: "tooltip-icon",
+          data: {
+            controller: "tooltip",
+            action: "mouseover->tooltip#show mouseout->tooltip#hide",
+            tooltip_text: "This section displays posts filtered by category or all posts if no category is selected."
+          }
+        )
+      )
+    end
   end
 
   def formatted_post_date(post)
