@@ -12,11 +12,24 @@
       <% end %>
     </div>
     <div class="post-taglist">
-      <%= image_tag "tags-icon.svg", alt: "Tags", class: "post-sorters-icon", 
-    data: { controller: "tooltip", action: "mouseover->tooltip#show mouseout->tooltip#hide", tooltip_text: "Tags" } %>
+      <%= image_tag "tags-icon.svg", alt: "Tags", class: "post-sorters-icon", data: { controller: "tooltip", action: "mouseover->tooltip#show mouseout->tooltip#hide", tooltip_text: "Tags" } %>
       <% @post.tags.each do |tag| %>
         <span class="post-tag">#<%= tag.name %></span>
       <% end %>
+    </div>
+    <div class="post-info">
+      <div class="post-info-content">
+        <%= image_tag "file-person-icon.svg", alt: "Author", class: "post-sorters-icon", data: { controller: "tooltip", action: "mouseover->tooltip#show mouseout->tooltip#hide", tooltip_text: "Author" } %>
+        Davis Weimer
+      </div>
+      <div class="post-info-content">
+        <%= image_tag "chat-left-text-icon.svg", alt: "Comments", class: "post-sorters-icon comments-icon", data: { controller: "tooltip", action: "mouseover->tooltip#show mouseout->tooltip#hide", tooltip_text: "Comments — Coming soon!" } %>
+        0
+      </div>
+      <div class="post-info-content">
+        <%= image_tag "star-icon.svg", alt: "Stars", class: "post-sorters-icon", data: { controller: "tooltip", action: "mouseover->tooltip#show mouseout->tooltip#hide", tooltip_text: "Stars — Coming soon!" } %>
+        0
+      </div>
     </div>
   </div>
   <div class="post-content">

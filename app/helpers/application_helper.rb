@@ -2,6 +2,10 @@ module ApplicationHelper
   include Pagy::Frontend
 
   class HTMLWithRouge < Redcarpet::Render::HTML
+    def initialize(options = {})
+      super(options.merge(filter_html: false))
+    end
+
     def link(link, title, content)
       if link.start_with?("http")
         %(<a href="#{link}" title="#{title}" target="_blank" rel="noopener noreferrer">#{content}</a>)
@@ -57,7 +61,7 @@ module ApplicationHelper
   end
 
   def markdown(content)
-    renderer = HTMLWithRouge.new(filter_html: true, hard_wrap: true)
+    renderer = HTMLWithRouge.new(hard_wrap: true)
     options = {
       fenced_code_blocks: true,
       tables: true,
