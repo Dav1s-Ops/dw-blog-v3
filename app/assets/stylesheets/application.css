@@ -209,6 +209,14 @@ main {
   border-top: 8px solid var(--Gray);
 }
 
+/* YouTube iframe Responsive container */
+.be-responsive-youtoob {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
