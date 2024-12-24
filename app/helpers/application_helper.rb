@@ -75,4 +75,18 @@ module ApplicationHelper
     }
     Redcarpet::Markdown.new(renderer, options).render(content).html_safe
   end
+
+  def render_post_content(post)
+    text = post.content.dup
+
+    post.images.each do |image|
+      filename = image.blob.filename.to_s
+      pattern = /!\[#{Regexp.escape(filename)}\]/i
+      if text.match?(pattern)
+        text.gsub!(pattern, "![#{filename}](#{url_for(image)})")
+      end
+    end
+
+    markdown(text)
+  end
 end
