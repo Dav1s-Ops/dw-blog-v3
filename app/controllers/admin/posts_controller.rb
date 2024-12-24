@@ -60,7 +60,7 @@ class Admin::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :status, :tag_list, category_ids: [])
+    params.require(:post).permit(:title, :content, :status, :tag_list, category_ids: [], images: [])
   end
 
   def set_categories
