@@ -14,8 +14,6 @@
   display: flex;
   padding: 3rem;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
   width: 100%;
   gap: 10px;
   border-radius: 12px;
@@ -178,13 +176,18 @@
 /* Markdown and Code Block Styling */
 .post-content h1,
 .post-content h2,
-.post-content h3,
+.post-content h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  margin: 36px 0 16px 0;
+}
+
 .post-content h4,
 .post-content h5,
 .post-content h6 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  margin: 15px 0;
+  margin: 16px 0 16px 0;
 }
 
 .post-content p,
@@ -215,17 +218,17 @@
 }
 
 .post-content h4 {
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: var(--Electro-Yellow);
 }
 
 .post-content h5 {
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: var(--Electro-Pink);
 }
 
 .post-content h6 {
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: var(--Electro-Purple);
 }
 
@@ -277,9 +280,19 @@
   margin: 20px 0;
 }
 
-.post-content img {
+.post-content-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.post-content-image {
   max-width: 100%;
-  height: auto;
+  max-height: 500px;
+  object-fit: contain;
   border-radius: 6px;
 }
 
