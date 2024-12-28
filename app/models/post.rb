@@ -1,12 +1,16 @@
 require "csv"
 
 class Post < ApplicationRecord
+  include Rails.application.routes.url_helpers
+
   belongs_to :user
 
   enum status: [ :draft, :published ]
 
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :tags
+
+  has_many_attached :images, dependent: :purge_later
 
   extend FriendlyId
   friendly_id :title, use: :slugged

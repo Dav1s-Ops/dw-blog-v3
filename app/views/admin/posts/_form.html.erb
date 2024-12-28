@@ -6,7 +6,7 @@
     <%= markdown(@post.content) %>
   </section>
 <% end %>
-<%= form_with(model: [:admin, @post], local: true, data: { turbo: false }, class: "add-post-form__container") do |form| %>
+<%= form_with(model: [:admin, @post], local: true, data: { turbo: false }, html: { multipart: true }, class: "add-post-form__container") do |form| %>
   <div class="add-post-form__content">
     <%= form.text_area :content, class: "add-post-form__content-input" %>
   </div>
@@ -32,6 +32,10 @@
     <div class="add-post-form__field">
       <%= form.label :tag_list, "Tags", class: "add-post-form__label" %>
       <%= form.text_area :tag_list, class: "add-post-form__input add-post-form__textarea", placeholder: "Enter tags separated by commas" %>
+    </div>
+    <div class="add-post-form__field add-post-form__file-upload">
+      <%= form.label :images, "Upload Images", class: "add-post-form__label" %>
+      <%= form.file_field :images, multiple: true, direct_upload: true, class: "add-post-form__file-upload-input" %>
     </div>
     <div class="add-post-form__field">
       <%= form.label :status, class: "add-post-form__label" %>

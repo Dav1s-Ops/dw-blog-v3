@@ -137,6 +137,27 @@
   line-height: 16px;
 }
 
+/* File Upload Field */
+.add-post-form__file-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.add-post-form__file-upload-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  background: #000;
+  color: whitesmoke;
+  font-family: 'B612 Mono', monospace;
+  font-size: 12px;
+  border: 1px solid #363636;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 /* Buttons */
 .add-post-form__buttons {
   width: 100%;
