@@ -15,24 +15,39 @@ module ApplicationHelper
     end
 
     def block_code(code, language)
-      lexer = Rouge::Lexer.find_fancy(language || "text", code)
+      show_copy_button = language != "nocopy"
+
+      lexer = Rouge::Lexer.find_fancy(language || "text", code) || Rouge::Lexers::PlainText
       formatter = Rouge::Formatters::HTMLLegacy.new(css_class: "highlight")
       highlighted_code = formatter.format(lexer.lex(code))
 
       icon_path = ActionController::Base.helpers.asset_path("copy-icon.svg")
-      language_label = language ? language : ""
+      language_label = language if language && language != "nocopy"
+      wrapper_attributes = show_copy_button ? build_wrapper_attributes(code) : ""
 
       <<~HTML.html_safe
-        <div class="code-block-wrapper" data-controller="copy" data-copy-code-value="#{ERB::Util.html_escape(code)}">
+        <div class="code-block-wrapper" #{wrapper_attributes}>
           <div class="code-block-header">
             <span class="code-block-language">#{ERB::Util.html_escape(language_label)}</span>
-            <button class="copy-button" data-action="click->copy#copy">
-              <img src="#{icon_path}" alt="Copy" />
-              Copy
-            </button>
+            #{render_copy_button(show_copy_button, icon_path)}
           </div>
           #{highlighted_code}
         </div>
+      HTML
+    end
+
+    def build_wrapper_attributes(code)
+      "data-controller='copy' data-copy-code-value='#{ERB::Util.html_escape(code)}'"
+    end
+
+    def render_copy_button(show, icon_path)
+      return unless show
+
+      <<~HTML
+        <button class="copy-button" data-action="click->copy#copy">
+          <img src="#{icon_path}" alt="Copy" />
+          Copy
+        </button>
       HTML
     end
 
@@ -83,7 +98,12 @@ module ApplicationHelper
       filename = image.blob.filename.to_s
       pattern = /!\[#{Regexp.escape(filename)}\]/i
       if text.match?(pattern)
-        text.gsub!(pattern, "![#{filename}](#{url_for(image)})")
+        replacement = %(
+          <div class="post-content-image-wrapper">
+            <img src="#{url_for(image)}" alt="#{filename}" class="post-content-image" />
+          </div>
+        ).strip
+        text.gsub!(pattern, replacement)
       end
     end
 
