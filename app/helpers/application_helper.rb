@@ -73,6 +73,10 @@ module ApplicationHelper
         "<td>#{content}</td>"
       end
     end
+
+    def image(link, title, alt_text)
+      %(<div class="post-content-image-wrapper"><img src="#{ERB::Util.html_escape(link)}" alt="#{ERB::Util.html_escape(alt_text)}" title="#{ERB::Util.html_escape(title)}" class="post-content-image" data-action="click->lightbox#open" data-controller="lightbox" /></div>)
+    end
   end
 
   def markdown(content)
@@ -100,7 +104,13 @@ module ApplicationHelper
       if text.match?(pattern)
         replacement = %(
           <div class="post-content-image-wrapper">
-            <img src="#{url_for(image)}" alt="#{filename}" class="post-content-image" />
+            <img
+              src="#{url_for(image)}"
+              alt="#{filename}"
+              class="post-content-image"
+              data-action="click->lightbox#open"
+              data-controller="lightbox"
+            />
           </div>
         ).strip
         text.gsub!(pattern, replacement)
