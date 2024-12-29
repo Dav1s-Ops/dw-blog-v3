@@ -1,3 +1,9 @@
+<div id="lightbox" class="lightbox hidden" data-controller="lightbox" data-action="click->lightbox#close">
+  <div class="lightbox-content">
+    <img src="" alt="Enlarged image" class="lightbox-image" />
+  </div>
+</div>
+
 <section class="post-container">
   <p class="post-date"><%= formatted_post_date(@post) %></p>
   <h1 class="post-title"><%= @post.title %></h1>
