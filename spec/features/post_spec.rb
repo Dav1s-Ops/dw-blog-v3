@@ -44,8 +44,8 @@ RSpec.feature "PostRendering", type: :feature do
     expect(page).to have_css('code', text: 'puts "Hello, Ruby!"')
 
     expect(page).to have_link('Backend', href: category_posts_path(category: category.slug))
-    expect(page).to have_css('.post-tag', text: '#Ruby')
-    expect(page).to have_css('.post-tag', text: '#Markdown')
+    expect(page).to have_css('.post-tag', text: 'Ruby')
+    expect(page).to have_css('.post-tag', text: 'Markdown')
   end
 
   scenario "Render code blocks with syntax highlighting" do
