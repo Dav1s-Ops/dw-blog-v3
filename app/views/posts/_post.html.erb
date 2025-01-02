@@ -1,6 +1,15 @@
 <div class="post">
   <p class="date-text"><%= post.created_at.strftime("%b %d, %Y") %></p>
   <%= link_to truncate(post.title, length: 50), post_path(post), class: "title-text" %>
+  <div class="categories">
+    <%= image_tag "folder-icon.svg", alt: "Category", class: "post-sorters-icon", 
+    data: { controller: "tooltip", action: "mouseover->tooltip#show mouseout->tooltip#hide", tooltip_text: "Category" } %>
+    <% post.categories.each do |category| %>
+      <%= link_to category_posts_path(category: category.slug), class: "category-tag", data: { category: category.name.downcase } do %>
+        <%= category.name %>
+      <% end %>
+    <% end %>
+  </div>
   <div class="post-content-index">
     <%= first_paragraph_of_markdown(post.content) %>
   </div>
