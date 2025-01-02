@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   root to: redirect('/posts')
 
   resources :posts, only: [:index, :show]
+  resources :tags, only: :show
 
   # Posts by category sort
   get 'posts/category/:category', to: 'posts#index', as: 'category_posts'
