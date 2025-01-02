@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   connect() {
     this.tooltipElement = document.createElement("div");
-    this.tooltipElement.className = "tooltip hidden";
+    this.tooltipElement.className = "tooltip";
 
     const tooltipText = document.createElement("span");
     tooltipText.innerText = this.element.dataset.tooltipText;
@@ -18,10 +18,9 @@ export default class extends Controller {
   }
 
   show(event) {
-    this.tooltipElement.classList.remove("hidden");
-    const rect = this.element.getBoundingClientRect();
+    this.tooltipElement.classList.add("visible");
 
-    // Calculate horizontal center
+    const rect = this.element.getBoundingClientRect();
     const tooltipWidth = this.tooltipElement.offsetWidth;
     const leftPosition = rect.left + window.scrollX + (rect.width / 2) - (tooltipWidth / 2);
 
@@ -30,7 +29,7 @@ export default class extends Controller {
   }
 
   hide() {
-    this.tooltipElement.classList.add("hidden");
+    this.tooltipElement.classList.remove("visible");
   }
 
   disconnect() {

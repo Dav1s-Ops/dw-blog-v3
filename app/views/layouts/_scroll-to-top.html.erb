@@ -1,0 +1,3 @@
+<div data-controller="scroll-to-top" class="scroll-to-top hidden" data-action="click->scroll-to-top#scrollToTop">
+  <%= inline_svg 'arrow-up.svg', class: 'scroll-to-top__icon', data: { controller: "tooltip", action: "mouseover->tooltip#show mouseout->tooltip#hide", tooltip_text: "Scroll to Top" } %>
+</div>
