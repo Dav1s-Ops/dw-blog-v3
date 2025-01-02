@@ -26,5 +26,8 @@
       <%= yield %>
     </main>
     <%= render "layouts/footer" %>
+    <div data-controller="scroll-to-top" class="scroll-to-top hidden" data-action="click->scroll-to-top#scrollToTop">
+      ↑ Top
+    </div>
   </body>
 </html>
