@@ -1,0 +1,42 @@
+<section class="posts-container" id="posts-container">
+  <div class="tag-page-container">
+    <div class="tag-page-left">
+      <%= image_tag "tags-icon.svg", alt: "Category", class: "post-sorters-icon", 
+    data: { controller: "tooltip", action: "mouseover->tooltip#show mouseout->tooltip#hide", tooltip_text: "Selected Tag" } %>
+      <h1 class="selected-tag"><%= @tag.name %></h1>
+    </div>
+    <div class="tag-page-right">
+      <%= image_tag "tags-multiple-icons.svg", alt: "Category", class: "post-sorters-icon", 
+    data: { controller: "tooltip", action: "mouseover->tooltip#show mouseout->tooltip#hide", tooltip_text: "More Tags" } %>
+      <% @random_tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag.name), class: "tag-page__post-tag" %>
+      <% end %>
+    </div>
+  </div>
+  <% if @posts.any? %>
+    <%= render @posts %>
+    <% if @pagy.next %>
+      <div class="load-more-container">
+        <button 
+          class="load-more"
+          data-controller="load-more"
+          data-action="click->load-more#loadMore"
+          data-load-more-url-value="<%= posts_path(category: @category, page: @pagy.next, format: :json) %>"
+          >
+          <span class="load-more-text">Load more</span>
+          <%= image_tag "next-arrow-circle.svg", alt: "Load More Arrow", class: "load-more-icon" %>
+        </button>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="nothing-here-container">
+      <%= inline_svg_tag "missing-data-icon.svg", alt: "Nothing here..", class: "nothing-here-icon"  %>
+      <div class="text-container">
+        <div class="nothing-here-title">Nothing here yet..</div>
+        <div class="nothing-here-description">
+          I'll get to this topic soon, try another category and check back later!
+        </div>
+      </div>
+    </div>
+  <% end %>
+</section>

@@ -20,7 +20,7 @@
     <div class="post-taglist">
       <%= image_tag "tags-icon.svg", alt: "Tags", class: "post-sorters-icon", data: { controller: "tooltip", action: "mouseover->tooltip#show mouseout->tooltip#hide", tooltip_text: "Tags" } %>
       <% @post.tags.each do |tag| %>
-        <span class="post-tag">#<%= tag.name %></span>
+        <%= link_to tag.name, tag_path(tag.name), class: "post-tag" %>
       <% end %>
     </div>
     <div class="post-info">
