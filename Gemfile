@@ -44,7 +44,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
   gem "pry", "~> 0.14.2"
-  gem "rspec-rails", "~> 7.0"
+  gem "rspec-rails", "~> 7.1"
   gem "capybara", "~> 3.40"
   gem "launchy", "~> 3.0"
   gem "simplecov", "~> 0.22.0"
