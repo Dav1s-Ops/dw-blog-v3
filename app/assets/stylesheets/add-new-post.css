@@ -158,6 +158,32 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Existing Images Section */
+.add-post-form__field.add-post-form__existing-images {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.existing-image-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 65px;
+  background: #000;
+  border: 1px solid #363636;
+  border-radius: 6px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.existing-image-wrapper img {
+  width: 80px;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid #363636;
+}
+
 /* Buttons */
 .add-post-form__buttons {
   width: 100%;

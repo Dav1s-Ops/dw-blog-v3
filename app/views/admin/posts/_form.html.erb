@@ -1,11 +1,3 @@
-<% if flash.now[:preview] %>
-  <section class="posts-container">
-    <h1><%= @post.title %></h1>
-    <p>Categories: <%= @post.categories.map(&:name).join(', ') %></p>
-    <p>Tags: <%= @post.tag_list %></p>
-    <%= markdown(@post.content) %>
-  </section>
-<% end %>
 <%= form_with(model: [:admin, @post], local: true, data: { turbo: false }, html: { multipart: true }, class: "add-post-form__container") do |form| %>
   <div class="add-post-form__content">
     <%= form.text_area :content, class: "add-post-form__content-input" %>
@@ -37,6 +29,21 @@
       <%= form.label :images, "Upload Images", class: "add-post-form__label" %>
       <%= form.file_field :images, multiple: true, direct_upload: true, class: "add-post-form__file-upload-input" %>
     </div>
+    <% if @post.images.attached? %>
+      <div class="add-post-form__field add-post-form__existing-images">
+        <%= form.label :images, "Existing Images", class: "add-post-form__label" %>
+        <% @post.images.each do |img| %>
+          <div class="existing-image-wrapper">
+            <%= image_tag img, width: 100 %>
+            <span class="add-post-form__checkbox-label"><%= img.blob.filename.to_s %></span>
+            <label class="add-post-form__checkbox-item">
+              <%= check_box_tag "remove_images[]", img.blob.id, false, class: "add-post-form__checkbox" %>
+              <span class="add-post-form__checkbox-label">Remove?</span>
+            </label>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
     <div class="add-post-form__field">
       <%= form.label :status, class: "add-post-form__label" %>
       <%= form.select :status, options_for_select([["Draft", "draft"], ["Published", "published"]], @post.status), {}, class: "add-post-form__input" %>

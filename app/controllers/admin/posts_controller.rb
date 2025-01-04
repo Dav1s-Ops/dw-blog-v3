@@ -28,7 +28,18 @@ class Admin::PostsController < ApplicationController
   end
 
   def update
-    @post.assign_attributes(post_params)
+    @post.assign_attributes(post_params.except(:images))
+
+    if post_params[:images].present?
+      @post.images.attach(post_params[:images])
+    end
+
+    if params[:remove_images].present?
+      params[:remove_images].each do |blob_id|
+        attachment = @post.images.attachments.find_by(blob_id: blob_id)
+        attachment&.purge
+      end
+    end
 
     if @post.save
       redirect_to admin_posts_path, notice: "Post updated."

@@ -172,19 +172,19 @@
 
 /* Markdown and Code Block Styling */
 .post-content h1,
-.post-content h2,
-.post-content h3 {
+.post-content h2 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  margin: 36px 0 16px 0;
+  margin: 36px 0 0 0;
 }
 
+.post-content h3,
 .post-content h4,
 .post-content h5,
 .post-content h6 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  margin: 16px 0 16px 0;
+  margin: 16px 0 0 0;
 }
 
 .post-content p,
@@ -274,7 +274,7 @@
   width: 100%;
   height: 1px;
   background: var(--Electro-Forest-Green);
-  margin: 20px 0;
+  margin: 20px 0 10px 0;
 }
 
 .post-content-image-wrapper {
