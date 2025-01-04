@@ -36,7 +36,8 @@ class Admin::PostsController < ApplicationController
 
     if params[:remove_images].present?
       params[:remove_images].each do |blob_id|
-        @post.images.find(blob_id).purge
+        attachment = @post.images.attachments.find_by(blob_id: blob_id)
+        attachment&.purge
       end
     end
 
