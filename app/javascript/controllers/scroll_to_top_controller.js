@@ -21,5 +21,14 @@ export default class extends Controller {
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
+
+    const resetButtonAfterScroll = () => {
+      if (window.scrollY === 0) {
+        this.element.classList.add("hidden");
+        window.removeEventListener("scroll", resetButtonAfterScroll);
+      }
+    };
+
+    window.addEventListener("scroll", resetButtonAfterScroll);
   }
 }
