@@ -1,5 +1,6 @@
 /* `Code` highlighting */
-.post-content p code {
+.post-content p code, 
+.post-content li code {
   background: rgba(50, 50, 50, 0.8);
   color: var(--Electro-Yellow);
   padding: 3px 6px;
