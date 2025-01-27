@@ -6,6 +6,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta property="og:description" content="I'm Davis, a SWE exploring the universe of software. Welcome to my blog, where I share insights, projects, and tutorials." />
+    <meta property="og:image" content="<%= image_url('coding-logo.svg', host: request.base_url) %>" />
     <%= yield :head %>
     <%= favicon_link_tag 'favicon.ico' %>
     <link rel="manifest" href="/manifest.json">

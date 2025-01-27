@@ -70,3 +70,6 @@ gem "inline_svg", "~> 1.10"
 gem "nokogiri", "~> 1.16"
 
 gem "aws-sdk-s3", "~> 1.176"
+
+gem "rack-cors", "~> 2.0"
+gem "meta-tags", "~> 2.22"
