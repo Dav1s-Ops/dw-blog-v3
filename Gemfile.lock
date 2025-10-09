@@ -159,6 +159,8 @@ GEM
     launchy (3.0.1)
       addressable (~> 2.8)
       childprocess (~> 5.0)
+    letter_opener (1.10.0)
+      launchy (>= 2.2, < 4)
     logger (1.6.1)
     loofah (2.23.1)
       crass (~> 1.0.2)
@@ -383,6 +385,7 @@ DEPENDENCIES
   inline_svg (~> 1.10)
   jbuilder
   launchy (~> 3.0)
+  letter_opener (~> 1.10)
   meta-tags (~> 2.22)
   nokogiri (~> 1.16)
   orderly (~> 0.1.1)
