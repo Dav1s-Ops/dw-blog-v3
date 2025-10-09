@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "contacts/create"
   devise_for :users, skip: :registrations
 
   namespace :admin do
