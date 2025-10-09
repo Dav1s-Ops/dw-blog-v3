@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "contacts/create"
   devise_for :users, skip: :registrations
 
   namespace :admin do
@@ -20,6 +21,9 @@ Rails.application.routes.draw do
 
   # Posts by category sort
   get 'posts/category/:category', to: 'posts#index', as: 'category_posts'
+
+  # Emailz
+  post '/contacts', to: 'contacts#create', as: 'contacts'
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
