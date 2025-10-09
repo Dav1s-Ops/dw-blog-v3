@@ -1,6 +1,6 @@
 class ContactMailer < ApplicationMailer
   default from: "no-reply@dw-code-blog.dev"
-  def feedback
+  def feedback(sender_email, message, send_copy = false)
     @message = message
     @sender_email = sender_email
 
