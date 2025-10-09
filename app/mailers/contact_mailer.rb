@@ -1,12 +1,16 @@
 class ContactMailer < ApplicationMailer
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.contact_mailer.feedback.subject
-  #
+  default from: "no-reply@dw-code-blog.dev"
   def feedback
-    @greeting = "Hi"
+    @message = message
+    @sender_email = sender_email
 
-    mail to: "to@example.org"
+    mail(to: "davis@dw-code-blog.dev",
+        from: sender_email,
+        subject: "Feedback from Contact Form")
+
+    if send_copy
+      mail(to: sender_email,
+          subject: "Copy of Feedback Form Submission")
+    end
   end
 end
