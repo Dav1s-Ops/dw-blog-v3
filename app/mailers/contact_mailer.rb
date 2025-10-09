@@ -6,7 +6,7 @@ class ContactMailer < ApplicationMailer
 
     mail(to: "davis@dw-code-blog.dev",
         from: sender_email,
-        subject: "Feedback from Contact Form")
+        subject: "New Feedback from Contact Form")
 
     if send_copy
       mail(to: sender_email,
