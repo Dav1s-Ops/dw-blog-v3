@@ -8,6 +8,10 @@ class ContactsController < ApplicationController
       # TODO: handle error
     end
 
-    ContactMailer.feedback(sender_email, message, send_copy).deliver_later
+    ContactMailer.feedback(sender_email, message).deliver_later
+
+    if send_copy
+      ContactMailer.feedback_copy(sender_email, message).deliver_later
+    end
   end
 end
