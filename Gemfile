@@ -50,7 +50,6 @@ group :development, :test do
   gem "simplecov", "~> 0.22.0"
   gem "shoulda-matchers", "~> 6.4"
   gem "orderly", "~> 0.1.1"
-  gem "selenium-webdriver", "~> 4.37"
 end
 
 group :development do
