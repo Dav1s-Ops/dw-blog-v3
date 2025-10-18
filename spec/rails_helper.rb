@@ -5,6 +5,8 @@ SimpleCov.start do
   add_filter '/config/'
 end
 require 'spec_helper'
+require 'capybara/rails'
+require 'capybara/rspec'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
@@ -74,6 +76,10 @@ RSpec.configure do |config|
   # Add Devise test identifiers sign_in & sign_out
   config.include Devise::Test::IntegrationHelpers
 end
+
+Capybara.default_driver = :selenium_chrome_headless
+Capybara.javascript_driver = :selenium_chrome_headless
+Capybara.server = :puma
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
