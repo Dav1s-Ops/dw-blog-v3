@@ -16,7 +16,7 @@ export default class extends Controller {
 
     if (!csrfToken) {
       console.error("CSRF token not found");
-      this.showFlashMessage("Form configuration error. Please refresh and try again.", "alert");
+      this.showMessage("Form configuration error. Please refresh and try again.", "error");
       return;
     }
 
@@ -38,7 +38,7 @@ export default class extends Controller {
       .then((data) => {
         console.log("Response data:", data);
         if (data.error) {
-          this.showFlashMessage(data.flash.alert, "alert");
+          this.showMessage(data.flash.alert, "error");
         } else {
           this.showFlashMessage(data.flash.notice, "notice");
           form.reset();
@@ -47,8 +47,19 @@ export default class extends Controller {
       })
       .catch((error) => {
         console.error("Fetch error:", error);
-        this.showFlashMessage("Failed to send message. Please try again.", "alert");
+        this.showMessage("Failed to send message. Please try again later!", "error");
       });
+  }
+
+  showMessage(text, type) {
+    const messageDiv = this.messageTarget;
+    messageDiv.style.display = "block";
+    messageDiv.textContent = text;
+    messageDiv.className = `contact-form__message contact-form__message--${type}`;
+    setTimeout(() => {
+      messageDiv.style.display = "none";
+      messageDiv.className = "contact-form__message";
+    }, 5000);
   }
 
   showFlashMessage(text, type) {
