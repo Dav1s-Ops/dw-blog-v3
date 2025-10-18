@@ -342,6 +342,15 @@
   text-align: center;
 }
 
+.contact-form__message--success {
+  color: var(--Electro-Forest-Green, #0DAE5E);
+}
+
+.contact-form__message--error {
+  color: #dc3545;
+}
+
+
 .contact-form__buttons {
   display: flex;
   justify-content: center;
@@ -357,21 +366,21 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  cursor: not-allowed;
+  cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background 0.3s ease, border 0.3s ease-out;
 }
 
 .contact-form__button:hover,
 .contact-form__button:focus {
-  border: 1px solid var(--Gray); 
-  background: rgba(76, 76, 76, 0.8);
-  outline: 2px solid rgba(59, 59, 59, 0.5); 
+  border: 1px solid var(--Electro-Forest-Green, #0DAE5E); 
+  background: rgba(13, 174, 94, 0.8);
+  outline: 1px solid rgba(13, 174, 94, 0.5); 
   outline-offset: 2px;
 }
 
 .contact-form__button-text {
-  color: rgb(156, 156, 156);
+  color: white;
   font-size: 16px;
   font-family: Inter, sans-serif;
   font-weight: 400;
