@@ -16,7 +16,7 @@ export default class extends Controller {
 
     if (!csrfToken) {
       console.error("CSRF token not found");
-      this.showMessage("Form configuration error. Please refresh and try again.", "error");
+      this.showFlashMessage("Form configuration error. Please refresh and try again.", "alert");
       return;
     }
 
@@ -38,26 +38,24 @@ export default class extends Controller {
       .then((data) => {
         console.log("Response data:", data);
         if (data.error) {
-          this.showMessage(data.error, "error");
+          this.showFlashMessage(data.flash.alert, "alert");
         } else {
-          this.showMessage(data.message, "success");
+          this.showFlashMessage(data.flash.notice, "notice");
           form.reset();
+          document.getElementById('contact-dialog').close();
         }
       })
       .catch((error) => {
         console.error("Fetch error:", error);
-        this.showMessage("Failed to send message. Please try again.", "error");
+        this.showFlashMessage("Failed to send message. Please try again.", "alert");
       });
   }
 
-  showMessage(text, type) {
-    const messageDiv = this.messageTarget;
-    messageDiv.style.display = "block";
-    messageDiv.textContent = text;
-    messageDiv.className = `contact-form__message contact-form__message--${type}`;
-    setTimeout(() => {
-      messageDiv.style.display = "none";
-      messageDiv.className = "contact-form__message";
-    }, 5000);
+  showFlashMessage(text, type) {
+    const flashContainer = document.createElement('div');
+    flashContainer.className = `app-flash-notification ${type}`;
+    flashContainer.setAttribute('data-controller', 'flash');
+    flashContainer.innerHTML = `<p>${text}</p>`;
+    document.body.appendChild(flashContainer);
   }
 }
