@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ContactMailer, type: :mailer do
+  let(:to_email) { 'davis@dw-code-blog.dev' }
+  let(:from_email) { 'feedback@dw-code-blog.dev' }
   let(:sender_email) { 'user@example.com' }
   let(:message) { 'Great app!' }
 
@@ -8,9 +10,9 @@ RSpec.describe ContactMailer, type: :mailer do
     let(:mail) { ContactMailer.feedback(sender_email, message) }
 
     it 'renders the headers' do
-      expect(mail.subject).to eq('New Feedback from Contact Form')
-      expect(mail.to).to eq([ 'davis@dw-code-blog.dev' ])
-      expect(mail.from).to eq([ sender_email ])
+      expect(mail.subject).to eq('New Feedback from Blog Form')
+      expect(mail.to).to eq([ to_email ])
+      expect(mail.from).to eq([ from_email ])
     end
 
     it 'renders the body' do
@@ -23,9 +25,9 @@ RSpec.describe ContactMailer, type: :mailer do
     let(:mail) { ContactMailer.feedback_copy(sender_email, message) }
 
     it 'renders the headers' do
-      expect(mail.subject).to eq('Copy of Your Feedback Submission')
+      expect(mail.subject).to eq('Copy of Your Message to DW Code Blog')
       expect(mail.to).to eq([ sender_email ])
-      expect(mail.from).to eq([ 'no-reply@dw-code-blog.dev' ])
+      expect(mail.from).to eq([ from_email ])
     end
 
     it 'renders the body' do
