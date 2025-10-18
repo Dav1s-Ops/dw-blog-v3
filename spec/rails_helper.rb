@@ -5,7 +5,6 @@ SimpleCov.start do
   add_filter '/config/'
 end
 require 'spec_helper'
-require 'capybara/rails'
 require 'capybara/rspec'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
