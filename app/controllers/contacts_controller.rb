@@ -4,6 +4,13 @@ class ContactsController < ApplicationController
     message = params[:message]
     send_copy = params[:send_copy].present?
 
+    # TEMPORARY DISABLE – SPAM PROTECTION
+    respond_to do |format|
+      format.html { redirect_to root_path, alert: "Contact form is temporarily disabled for maintenance." }
+      format.json { render json: { error: "Contact form is temporarily disabled." }, status: :service_unavailable }
+    end
+    return
+
     if sender_email.blank? || message.blank?
       respond_to do |format|
         format.html { redirect_to root_path, alert: "Email and message are required." }
